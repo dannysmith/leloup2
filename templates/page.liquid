@@ -1,0 +1,6 @@
+{% if collection.all_products_count > 0 and collection.products.first.vendor == collection.title %}
+ <!--I am on an automatic vendor collection page-->
+ <!--I could use this to insert a vendor-specific image named to some convention -->
+{% endif %}
+
+{{page.content}}

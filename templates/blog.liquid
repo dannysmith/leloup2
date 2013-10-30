@@ -1,0 +1,26 @@
+<section id="blog_posts" class="collection">
+	{% paginate blog.articles by 10 %}
+		<h1>{{blog.title}}</h1>
+		{% if blog.articles.results_count > 10 %}
+			<div id="pagination">
+				{{ paginate | default_pagination }}
+			</div>
+		{% endif %}
+		<dl>
+			{% for article in blog.articles %}
+				<dt>
+					<a href="{{article.url}}">{{ article.title }} {{ article.created_at | date: "%x"}}</a>		
+				</dt>
+				<dd>
+					<p>Published <time datetime="{{ article.published_at | date: "%Y-%m-%dT%H:%M:%S%Z" }}" pubdate>{{ article.published_at | date: "%A, %B %d" }}</time></p>
+					<p>{{ article.content | strip_html | truncate: 200 }}<a href="{{article.url}}">more</a></p>
+				</dd>
+			{% endfor %}
+		<dl>
+		{% if blog.articles.results_count > 10 %}
+			<div id="pagination">
+				{{ paginate | default_pagination }}
+			</div>
+		{% endif %}
+	{% endpaginate %}
+</section>

@@ -1,0 +1,76 @@
+{% if cart.item_count == 0 %}
+	<div class="checkout-empty">
+        <h2>Your basket's empty!</h2>
+        <h2 class="small"><a href="/">Continue Shopping</a>?</h2>
+    </div>
+{% else %}
+	<script type="text/javascript">
+		function remove_item(id) {
+			document.getElementById('updates_'+id).value = 0;
+			document.getElementById('cartform').submit();
+		}
+	</script>
+    <section class="checkout">
+      <form action="/cart" method="post" id="cartform">
+          <h2>Your Shopping Bag&#8230;</h2>
+          <button class="btn btn-checkout" id="cart_submit" type="submit" type="submit" name="checkout">
+              Checkout
+          </button>
+          <p class="checkout-continue-shopping">or <a href="#" onClick="history.go(-3)">continue shopping</a>
+          <table>
+              <caption>The items in your Basket</caption>
+              <thead>
+                  <tr>
+                      <th colspan="2">Item</th>
+                      <th>Price</th>
+                      <th>Quantity</th>
+                      <th>Total</th>
+                      <th>Remove</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  {% for item in cart.items %}
+                  <tr data-item="{{item.id}}">
+                      <td class="checkout-image-col">
+                          <a class="checkout-image" href="{{item.product.url}}" title="View {{item.title}} Page">
+                              <img src="{{item.product.featured_image | product_img_url: 'small' }}" alt="{{item.title | escape }}">
+                          </a>
+                      </td>
+                      <td class="h3">
+                          <a href="{{item.product.url}}" title="View {{item.title | escape }}">{{ item.product.title | truncate: 40 }}</a>
+                          <span>{{item.variant.title}}</span>
+                      </td>
+                      <td>
+                          Unit Price <span>{{ item.price | money }}</span>
+                      </td>
+                      <td>
+                          <input class="cart-qty" data-item="{{item.id}}" type="number" name="updates[{{item.variant.id}}]" id="updates_{{item.variant.id}}" value="{{item.quantity}}"/>
+                      </td>
+                      <td>Total<span>{{item.line_price | money }}</span></td>
+                      <td>
+                          <a data-item="{{item.id}}" title="Remove {{item.title}} from your basket" href="#" onclick="remove_item({{ item.variant.id }}); return false;">x</a>
+                      </td>
+                  </tr>
+                  {% endfor %}
+              </tbody>
+              <tfoot>
+                  <tr>
+                      <td colspan="3" class="h3"><small>Prices include VAT where applicable. Free delivery on orders over £60.</small></td>
+                      <td>Total:</td>
+                      <td><span>{{cart.total_price | money}}</span></td>
+                      <td><input class="btn btn-small" type="submit" id="update-cart" name="update" value="Update" title="Changed any numbers? update your cart!"/></td>
+                  </tr>
+              </tfoot>
+          </table>
+          
+          <button class="btn btn-checkout" id="cart_submit" type="submit" type="submit" name="checkout">
+              Checkout
+          </button>
+          <p class="checkout-continue-shopping">or <a href="#" onClick="history.go(-3)">continue shopping</a>
+      </form>
+    </section>
+    
+    {% include 'best-sellers' %}
+    
+{% endif %}
+  

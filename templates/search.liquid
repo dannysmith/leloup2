@@ -1,0 +1,51 @@
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+{% paginate search.results by 48 %}
+
+{% if search.results_count == 0 %}
+
+  <div class="search-noresults">
+      <h2>Sorry, nothing matches that!</h2>
+      <p>try searching again</p>
+  </div>
+  {% include 'best-sellers' %}
+
+{% else %}
+  <h2>Search Results for "{{ search.terms }}" ({{ search.results_count }})</h2>
+
+  <section class="product-grid clearfix">						
+  	{% for product in search.results %}
+  			<a class="product-box" href="{{product.url}}">
+    				<div class="image-wrapper">
+              {% if product.featured_image %}
+    					   <img src="{{ product.featured_image | product_img_url: 'medium'}}" alt="{{ product.description | strip_html | truncate: 75 }} click for more information" />
+              {% else %}
+ 					       <img class="nopin" src="{{ 'page-search-result.jpg' | asset_url }}" alt="{{ product.description | strip_html | truncate: 75 }} click for more information" />
+              {% endif %}
+    				</div>
+  				<p title="{{ product.description | strip_html }}">{{product.title | strip_html}}</p>
+          
+         {% if product.featured_image %}
+    				{% if product.compare_at_price_min > 0 %}
+    					<div class="product-box-price product-box-price-sale">{{ product.price_min | money }}</div>
+    				{% else %}
+             <div class="product-box-price">{{ product.price_min | money }}</div>
+    				{% endif %}
+         {% else %}
+            <div class="product-box-price">View this page</div>
+         {% endif %}
+            
+  			</a>
+  	{% endfor %}
+  </section>
+
+  {% if search.results_count > 20 %}
+  	<div id="pagination">
+  		{{ paginate | default_pagination }}
+  	</div>
+  {% endif %}
+{% endif %}  
+{% endpaginate %}
+
+
+

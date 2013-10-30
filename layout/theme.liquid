@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+			<meta name="google-site-verification" content="LMRGWHtoaVO7Tylz6P1UCuQ0kkzOloJn-SYnW4oq1mc" />
+			<meta name="p:domain_verify" content="ab69bec17484decc57457a41a94c9bb9" />
+			{% include 'head' %}
+    	{{ content_for_header }}
+    </head>
+    <body>
+      <!--~~~~~~~~~~~~~~~~~~~~ Handle old browser stuff ~~~~~~~~~~~~~~~~~~~~-->
+
+      <!--[if lt IE 7]>
+          <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a>!</p>
+      <![endif]-->
+      <noscript>
+          <h2 style="text-align: center;">You need to enable JavaScript to get the full Le Loup experience!</h2>
+      </noscript>
+
+  		<header id="header-main" role="banner">
+        
+        <!--~~~~~~~~~~~~~~~~~~~~ Header ~~~~~~~~~~~~~~~~~~~~-->
+        
+  			<hgroup>
+  				<a href="/"><h1>Le Loup</h1></a>
+  				<h2><span>Beautiful Clothes for Women Childeren and Babies &mdash; </span>01323 732369</h2>
+  			</hgroup>
+
+
+        
+        <!--~~~~~~~~~~~~~~~~~~~~ Basket ~~~~~~~~~~~~~~~~~~~~-->
+        
+  			<a href="/cart" class="basket">
+  	    			<p>your basket</p>
+      				<p class="basket-price">{{ cart.total_price | money }}</p>
+      				<p class="basket-items">({{ cart.item_count }} {{ cart.item_count | pluralize: "item", "items" }})</p>
+  			</a>
+        
+        <!--~~~~~~~~~~~~~~~~~~~~ Log in / Account / Signup ~~~~~~~~~~~~~~~~~~~~-->
+        
+        <div class="account-links">
+  	    	{% if customer %}
+            <a href="/account">Account</a> 
+            {{ "Log out" | customer_logout_link }}
+         {% else %}
+            {{ "Log in" | customer_login_link }}
+         {% endif %}
+        </div>
+	    	
+        
+        <!--~~~~~~~~~~~~~~~~~~~~ Search Form ~~~~~~~~~~~~~~~~~~~~-->
+
+  			<form class="form-search" id="search" action="/search" accept-charset="utf-8">
+  				<input type="search" id="search_text" name="q" placeholder="Search..." value="{{ search.terms }}">
+  				<input id="search_submit" type="submit" border="0" value="Go" style="display: none;" alt="Submit Search"/>
+  			</form>
+  		</header>
+		
+		
+		
+		<div id="wrapper" role="main">
+
+        {% include 'navigation' %}
+  
+        {% if template == 'list-collections' %}
+          {% include 'collection-listing' %}
+        {% else %}
+          {{ content_for_layout }}
+        {% endif %}
+        
+
+        {% include 'footer' %}
+		</div><!-- /wrapper -->
+    {% include 'scripts' %}
+    </body>
+</html>

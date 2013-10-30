@@ -1,0 +1,118 @@
+
+<h2>Homepage Settings</h2>
+<p>
+  <label for="home-message">Message</label>
+  <textarea id="home-message" name="home-message" value="" />
+</p>
+<p>
+  <label for="tagline">Header Tagline</label>
+  <input type="text" id="tagline" name="tagline" value="" width="500"/>
+</p>
+<br /><br /><br />
+
+<h2>Generic SEO</h2>
+<p>The following values will be used for your pages titles and meta descriptions:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Page Type</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Product Page</td>
+      <td><kbd>Buy {{product.title}}</kbd> from Le Loup Eastbourne</td>
+      <td><kbd>{{product.description}}</kbd></td>
+      <td>The product description will be trimmed to 150 characters. If the product is on sale, "Buy" will be replaced with "Sale:".</td>
+    </tr>
+    <tr>
+      <td>Collection Page</td>
+      <td><kbd>{{collection.title}}</kbd> from Le Loup Eastbourne</td>
+      <td><kbd>{{ collection.description}}</kbd></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Normal Pages</td>
+      <td><kbd>{{page.title}}</kbd> - Le Loup Eastbourne</td>
+      <td rowspan="2" colspan="2"><textarea type="text" id="other-pages-description" name="other-pages-description" value="" /></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Any other pages</td>
+      <td><input type="text" id="other-pages-title" name="other-pages-title" value=""/></td>
+    </tr>
+  </tbody>
+</table>
+<br /><br />
+
+<p>
+  <label for="meta-keywords">Meta Keywords</label>
+  <textarea id="meta-keywords" name="meta-keywords" value="" />
+</p>
+
+
+
+<br /><br /><br />
+<h2>Opening Times</h2>
+<p>You can write whatever you want in the Opening Times (text) column and it will appear on your website unchanged.</p>
+<p>The Opening Times (shhema.org) column is used to expose your opening times to goole. They must follow a specific format:</p>
+<ul>
+  <li>Times are specified using 24:00 time. For example, 3pm is specified as <kbd>15:00</kbd>.</li>
+  <li>A time range is seperated with a dash.</li>
+  <li>For example: 9am to 5pm would be written <kbd>09:00-17:00</kbd>.</li>
+</ul>
+<p>More information is available on the <a href="http://schema.org/LocalBusiness">schema.org page</a>.</p>
+	<p><label for="opening-active">Show Opening Times?</label><input type="checkbox" name="opening-active" id="opening-active" /></p>
+<br />
+
+<table>
+  <thead>
+    <tr>
+      <th>Day of the Week</th>
+      <th>Opening Times (text)</th>
+      <th>Opening Times (schema.org)</th>
+    </tr>
+  </thead>
+	<tbody>
+		<tr>
+			<td><label for="opening-mon">Monday</label></td>
+			<td><input type="text" id="opening-mon" name="opening-mon"/></td>
+			<td><input type="text" id="meta-opening-mon" name="meta-opening-mon"/></td>
+		</tr>
+		<tr>
+			<td><label for="opening-tue">Tuesday</label></td>
+			<td><input type="text" id="opening-tue" name="opening-tue"/></td>
+			<td><input type="text" id="meta-opening-tue" name="meta-opening-tue"/></td>
+		</tr>
+		<tr>
+			<td><label for="opening-wed">Wednesday</label></td>
+			<td><input type="text" id="opening-wed" name="opening-wed"/></td>
+			<td><input type="text" id="meta-opening-wed" name="meta-opening-wed"/></td>
+		</tr>
+		<tr>
+			<td><label for="opening-thu">Thursday</label></td>
+			<td><input type="text" id="opening-thu" name="opening-thu"/></td>
+			<td><input type="text" id="meta-opening-thu" name="meta-opening-thu"/></td>
+		</tr>
+		<tr>
+			<td><label for="opening-fri">Friday</label></td>
+			<td><input type="text" id="opening-fri" name="opening-fri"/></td>
+			<td><input type="text" id="meta-opening-fri" name="meta-opening-fri"/></td>
+		</tr>
+		<tr>
+			<td><label for="opening-sat"><strong>Saturday</strong></label></td>
+			<td><input type="text" id="opening-sat" name="opening-sat"/></td>
+			<td><input type="text" id="meta-opening-sat" name="meta-opening-sat"/></td>
+		</tr>
+		<tr>
+			<td><label for="opening-sun"><strong>Sunday</strong></label></td>
+			<td><input type="text" id="opening-sun" name="opening-sun"/></td>
+			<td><input type="text" id="meta-opening-sun" name="meta-opening-sun"/></td>
+		</tr>
+	</tbody>
+</table>
+<br />
+

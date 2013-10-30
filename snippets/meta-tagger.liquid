@@ -1,0 +1,94 @@
+<link rel="canonical" href="{{ canonical_url }}" />
+{% assign maxmeta = 155 %}
+{% if template contains 'product' %}
+  {% assign mf = product.metafields.meta_data %}
+  {% unless mf == empty %}
+    {% for mf in product.metafields.meta_data %}
+      {% capture key %}{{ mf | first }}{% endcapture %}
+      {% if key == 'title' %}
+        <title>{{mf | last}}</title>
+      {% endif %}
+      {% if key == 'meta_description' %}
+        <meta name="description" content="{{mf | last}}" />
+      {% endif %}
+      {% if key == 'keywords' %}
+        <meta name="keywords" content="{{mf | last}}" />
+      {% endif %}
+    {% endfor %}
+  {% else %}
+     <title>{{ page_title | escape }}</title>
+     <meta name="description" content="{{product.description | strip_html | strip_newlines | truncate: maxmeta | escape}}" />
+  {% endunless %}
+{% elsif template contains 'page' %}
+  {% assign mf = page.metafields.meta_data %}
+  {% unless mf == empty %}
+    {% for mf in page.metafields.meta_data %}
+      {% capture key%}{{ mf | first }}{%endcapture%}
+      {% if key == 'title' %}
+        <title>{{mf | last}}</title>
+      {% endif %}
+      {% if key == 'meta_description' %}
+        <meta name="description" content="{{mf | last}}" />
+      {% endif %}
+      {% if key == 'keywords' %}
+        <meta name="keywords" content="{{mf | last}}" />
+      {% endif %}
+    {% endfor %}
+  {% else %}
+      <title>{{ page_title | escape }}</title>
+     <meta name="description" content="{{page.content | strip_html | strip_newlines | truncate: maxmeta | escape}}" />
+  {% endunless %}
+{% elsif template contains 'collection' %}
+  {% assign mf = collection.metafields.meta_data %}
+  {% unless mf == empty or mf == nil %}
+    {% for mf in collection.metafields.meta_data %}
+      {% capture key%}{{ mf | first }}{%endcapture%}
+      {% if key == 'title' %}
+        <title>{{mf | last}} | Page {{current_page }}</title>
+      {% endif %}
+      {% if key == 'meta_description' %}
+        <meta name="description" content="{{mf | last}}" />
+      {% endif %}
+      {% if key == 'keywords' %}
+        <meta name="keywords" content="{{mf | last}}" />
+      {% endif %}
+    {% endfor %}
+  {% else %}
+    <title>{{ shop.name }} - {{ page_title | escape }}</title>
+    <meta name="description" content="{{collection.description | strip_html | strip_newlines | truncate: maxmeta | escape}}" />
+  {% endunless %}
+  
+{% elsif template contains 'index' %}
+  <title>Designer women's, children's & baby clothing, gifts and accessories. Shop at Le Loup.</title>
+  {% if shop.description != '' %}
+     <meta name="description" content="Shop women's, children's & baby's designer clothes - Hatley rain jackets & PJs, Fashion from Scotch Shrunk, Scotch R'Belle, Tootsa MacGinty & Frugi. New Baby gifts from Emile et Rose & Aden + Anais. Designer dresses & jeans from Religion & People Tree.  Bags, accessories & gifts from Disaster Designs. Perfume from Miller Harris." />
+  {% endif %}
+ 
+{% elsif template contains 'blog' %}
+  {% assign mf = blog.metafields.meta_data %}
+  {% unless mf == empty %}
+    {% for mf in blog.metafields.meta_data %}
+      {% capture key %}{{ mf | first }}{% endcapture %}
+      {% if key == 'title' %}
+        <title>{{mf | last}}</title>
+      {% endif %}
+      {% if key == 'meta_description' %}
+        <meta name="description" content="{{mf | last}}" />
+      {% endif %}
+      {% if key == 'keywords' %}
+        <meta name="keywords" content="{{mf | last}}" />
+      {% endif %}
+    {% endfor %}
+  {% else %}
+    <title>{{ page_title | escape }} {{ shop.name }}</title>
+    <meta name="description" content="{{ shop.name }} {{ blog.title | escape }} blog" /> 
+  {% endunless %}
+{% elsif template contains 'article' %}
+  <title>{{ page_title | escape }}</title>
+  <meta name="description" content=" {{ article.excerpt_or_content | strip_html | strip_newlines | escape | truncate: maxmeta  }}" />
+{% else %}  
+  <title>{{ shop.name }} - Welcome {% if template == "404" %} ==> Page Not Found <== {% endif %}</title>
+  {% if shop.description != '' %}
+     <meta name="description" content="{{shop.description | escape }}" />
+  {% endif %}
+{% endif %}

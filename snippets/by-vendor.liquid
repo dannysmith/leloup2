@@ -1,0 +1,10 @@
+{% assign all_products = collections["all"].products %}
+{{all_products.size}}
+<ul>
+   {% assign: vendorname = "none" %}
+   {% for product in all_products %}
+    {% if vendorname != product.vendor %}
+      <li>{{ product.vendor | link_to_vendor }}</li>
+     {% assign: vendorname = product.vendor %}
+    {% endif %}    {% endfor %}
+</ul>

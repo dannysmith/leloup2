@@ -1,0 +1,8 @@
+{% assign newproduct = false %}
+{% assign new_products = collections["all-stock-newest-first"] %}
+	
+{% for new_product in new_products.products limit:10 %}
+
+  <p>{{new_product.name}}</p>
+
+{% endfor %}

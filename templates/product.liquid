@@ -1,0 +1,88 @@
+<article class="product-page clearfix hentry" id="{{product.handle}}" itemscope itemtype="http://schema.org/Product">
+    
+    
+  <aside class="hidden product-breadcrumbs-data">
+  	<p>{{product.handle}}</p>
+  </aside>
+
+  <div class="breadcrumb">
+    <li><a href="/" title="Back to the frontpage">Found</a></li>
+  	<li>{{product.title}}</li>
+  </div>
+
+	
+	
+    <section class="product-image clearfix">
+	    {% for image in product.images %}
+	        {% if forloop.first %}  
+        		<div class="product-image-main">
+        			<img src="{{ image | product_img_url: 'master' }}" alt="Picture of {{product.title}} - Le Loup" />
+        			<div class="product-image-zoom"></div>
+        		</div>
+        		<a itemprop="image" class="product-image-small product-image-1" href="{{ image | product_img_url: 'master' }}">
+        			<img src="{{ image | product_img_url: 'master' }}" alt="Picture of {{product.title}} - Le Loup" />
+        		</a>
+	        {% else %}
+		        <a class="product-image-small product-image-{{forloop.index}}" href="{{ image | product_img_url: 'master' }}">
+        			<img src="{{ image | product_img_url: 'master' }}" alt="Picture of {{product.title}} - Le Loup" />
+        		</a>
+        	{% endif %}
+    	{% endfor %}
+	</section>
+	
+    <section class="product-details">
+        <h2 itemprop="name">{{ product.title }}</h2>
+
+        <div class="product-details-description clearfix">
+          
+          <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+  					{% if product.compare_at_price_min > 0 %}
+  						<p class="product-buynow-price product-buynow-price-sale"><del>Was {{ product.compare_at_price_min | money }}</del><span itemprop="price" >{{ product.price_min | money }}</span></p>
+  					{% else %}
+             <p class="product-buynow-price ">Our Price <span itemprop="price">{{ product.price_min | money }}</span></p>
+  					{% endif %}
+          </div>
+         <span itemprop="description">{{ product.description }}</span>
+        </div>
+        
+        {% if product.available %}
+          <span itemprop="availability" href="http://schema.org/InStock" style="visability: hidden;">In Stock</span> 
+          <form class="product-buynow" id="add_to_basket" action="/cart/add" method="post">
+            {% if product.variants.size > 1 %}
+					    <select id="variant-select" name="id" class="product-info-options">
+					      <option disabled selected value="">Choose your options&#8230;</option>
+    						{% for variant in product.variants %}
+    							{% if variant.available == true %}
+    								<option value="{{ variant.id }}" data-price="{{ variant.price | money }}">{{ variant.title }}</option>
+    							{% endif %}
+    						{% endfor %}
+      				</select>
+				     {% else %}
+      				<select id="variant-select-one" name="id" class="product-info-options">
+      					{% for variant in product.variants %}
+      						{% if variant.available == true %}
+      							<option value="{{ variant.id }}" data-price="{{ variant.price | money }}">{{ variant.title }}</option>
+      						{% endif %}
+      					{% endfor %}
+      				</select>
+      			{% endif %}
+            <input {% if product.variants.size > 1 %}disabled {% endif %}type="submit" class="btn-product-buynow {% if product.variants.size > 1 %}btn-product-buynow-many {% endif %}btn" value="Buy Now!"/>
+            <p class="product-details-shipping"><a href="/pages/help#returns">Shipping Prices &amp; Returns</a></p>
+          </form>
+        {% else %}
+			<p style="text-align: right; width: 100%">Sorry, we're out of stock.</p>
+		{% endif %}
+        
+        <div class="facebook-comments">
+            <h1>Comment &amp; Share</h1>
+            <div class="product-social">
+                <div class="fb-like" data-send="false" data-layout="button_count" data-width="400" data-show-faces="false" data-font="arial"></div>
+                <a href="http://pinterest.com/pin/create/button/?url={{shop.url}}{{product.url}}&media={{ product.featured_image | product_img_url: 'grande' }}&description={{ product.description | strip_html }}" class="pin-it-button" count-layout="horizontal"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
+                <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet me!</a>
+            </div>
+            <div class="fb-comments" data-href="{{ shop.url }}{{ product.url }}" data-num-posts="5" data-width="478"></div>
+        </div>
+	</section>
+</article>
+
+{% include 'best-sellers' %}

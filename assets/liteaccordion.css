@@ -1,0 +1,36 @@
+@charset 'utf-8';
+/*************************************************!
+*
+* project:liteAccordion - a horizontal accordion plugin for jQuery
+* author:Nicola Hibbert
+* url:http://nicolahibbert.com/liteaccordion-v2/
+* demo:http://www.nicolahibbert.com/demo/liteAccordion/
+*
+* Version:2.1.1
+* Copyright:(c) 2010-2012 Nicola Hibbert
+* Licence:MIT
+*
+**************************************************/
+/****************************************** Core */
+.liteAccordion{text-align:left;font:'Helvetica Neue',Verdana,Arial,sans-serif;-webkit-tap-highlight-color:transparent}
+.liteAccordion > ol{position:relative;overflow:hidden;height:100%;margin:0;padding:0;list-style-type:none}
+.liteAccordion .slide > h2{color:black;font-size:16px;font-weight:normal;margin:0;z-index:100;position:absolute;top:0;left:0;-webkit-backface-visibility:hidden;/* fixes chrome bug */
+-webkit-transform:translateX(-100%) rotate(-90deg);-webkit-transform-origin:right top;-moz-transform:translateX(-100%) rotate(-90deg);-moz-transform-origin:right top;-o-transform:translateX(-100%) rotate(-90deg);-o-transform-origin:right top;transform:translateX(-100%) rotate(-90deg);transform-origin:right top;}
+.liteAccordion .slide > h2 span{display:block;padding-right:8%;text-align:right;height:90%;margin-top:5px;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}
+.liteAccordion .slide > h2 b{display:inline-block;position:absolute;top:13%;left:10%;text-align:center;-webkit-transform:rotate(90deg);-moz-transform:rotate(90deg);-o-transform:rotate(90deg);transform:rotate(90deg);}
+.liteAccordion .slide > h2:hover{cursor:pointer}
+.liteAccordion .slide > div{height:100%;position:absolute;top:0;z-index:10;overflow:hidden;background:white}
+/******************************************** IE */
+/* transforms */
+.liteAccordion.ie7 .slide > h2{filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=3)}
+.liteAccordion.ie7 .slide > h2 b{filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=1)}
+.liteAccordion.ie8 .slide > h2{filter:none;-ms-filter:"progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";-ms-transform:none}
+.liteAccordion.ie8 .slide > h2 b{filter:none;-ms-filter:"progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";-ms-transform:none}
+.liteAccordion.ie9 .slide > h2{filter:none;-ms-filter:none;-ms-transform:translateX(-100%) rotate(-90deg);-ms-transform-origin:right top}
+.liteAccordion.ie9 .slide > h2 b{filter:none;-ms-filter:none;-ms-transform:rotate(90deg)}
+/* misc */
+.liteAccordion.ie .slide > h2 b{top:36%;left:5%}
+.liteAccordion.ie.dark .slide > h2 b,.liteAccordion.ie.light .slide > h2 b{top:44%}
+.liteAccordion.ie9.dark .slide > h2.selected span,.liteAccordion.ie9.dark .slide > h2.selected span:hover,.liteAccordion.light .slide > h2 span{filter:none}
+.liteAccordion.ie9.stitch{box-shadow:0 5px 15px rgba(0,0,0,0.4);}
+.liteAccordion.ie9.stitch .slide > h2 b{top:0;left:10%}

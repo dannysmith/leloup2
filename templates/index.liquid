@@ -1,0 +1,28 @@
+<!--<section class="home-slider">
+    <ol>
+        {% for c in linklists.featured-collections.links %}
+        <li>
+            <h2><span>{{c.title}}</span></h2>
+            <div>
+                <figure>
+                    <a href="{{c.url}}">
+                        <img class="no-pin" src="{{c.object.image.src | collection_img_url: 'original'}}" alt="{{c.title}} - Le Loup, Eastbourne">
+                    </a>
+                </figure>
+            </div>
+        </li>
+        {% endfor %}
+    </ol>
+</section>-->
+
+<p class="home-callout clearfix">{{ settings.home-message }}</p>
+
+<aside class="social clearfix social-home">
+    <ul class="clearfix">
+        <li class="clearfix social-fb"><a href="https://www.facebook.com/LeLoupShop" target="_new">Facebook</a></li>
+        <li class="clearfix social-tw"><a href="https://twitter.com/leloupshop" target="_new">Twitter</a></li>
+        <li class="clearfix social-pt"><a href="http://pinterest.com/leloupshop/" target="_new">Pinterest</a></li>
+    </ul>
+</aside>
+
+{% include 'best-sellers' %}

@@ -1,0 +1,155 @@
+<article id="{{page.handle}}" class="about" itemscope itemtype="http://schema.org/Store">
+    <div class="about-family-image"></div>
+    <h2>All about <span itemprop="name">Le Loup</span></h2>
+    
+    <section class="about-text" itemprop="description">
+        {{page.content}}
+    </section>
+    
+    <section class="about-whoarewe">
+        <div class="gemma" itemprop="founder" itemscope itemtype="http://schema.org/Person">
+            <img itemprop="image" class=" no-pin" src="{{ 'gemma.png' | asset_url}}" alt="Gemma, Le Loup's owner has the wonderful job of choosing all the goodies that go in store and deciding where to put it all!  On her days off her job is Mum to two lovely little rascals. So long as a coffee is close at hand it can all be done!" />
+            <h1 itemprop="name">Gemma</h1>
+            <p itemprop="description">Le Loup's owner has the wonderful job of choosing all the goodies that go in store and deciding where to put it all!  On her days off her job is Mum to two lovely little rascals. So long as a coffee is close at hand it can all be done! </p>
+            <div></div> <!-- Used for corners -->
+        </div>
+        <div class="pictureframe">{{ 'shop.jpg' | asset_url | img_tag: "Inside Le Loup, Eastbourne" }}</div>
+        <div class="hannah">
+            <img class=" no-pin" src="{{ 'hannah.png' | asset_url}}" alt="Hannah's job as manager of Le Loup encompasses many activities! Always busy with a new project or delivery but on hand to give a lovely welcome to our customers at all times! So long as chocolate is at hand it can all be done!" />
+            <h1>Hannah</h1>
+            <p>Hannah's job as manager of Le Loup encompasses many activities! Always busy with a new project or delivery but on hand to give a lovely welcome to our customers at all times! So long as chocolate is at hand it can all be done! </p>
+            <div></div> <!-- Used for corners -->
+        </div>
+    </section>
+
+    <section id="findus" class="about-find-us">
+        <h2>Find Us</h2>
+        <p>Le Loup is nestled in amongst a gorgeous array of boutiques and amenities in one of Eastbourne's loveliest shopping parades - Compton Street behind the Grand Hotel on Eastbourne's picturesque seafront.  Part of Eastbourne's theatre district, we are  a couple of minutes walk from The Devonshire Theatre, the Congress theatre and the Towner Gallery.  There is free parking outside the shop and in the nearby streets.</p>
+        <div class="about-map">
+            <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.co.uk/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=BN21+4EJ+le+loup&amp;aq=&amp;sll=50.760553,0.282619&amp;sspn=0.008171,0.01914&amp;g=BN21+4EJ&amp;ie=UTF8&amp;hq=le+loup&amp;hnear=BN21+4EJ,+United+Kingdom&amp;t=m&amp;cid=9472761568019828677&amp;ll=50.770719,0.285816&amp;spn=0.026055,0.054932&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe>
+            <br /><small><a href="http://maps.google.co.uk/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=BN21+4EJ+le+loup&amp;aq=&amp;sll=50.760553,0.282619&amp;sspn=0.008171,0.01914&amp;g=BN21+4EJ&amp;ie=UTF8&amp;hq=le+loup&amp;hnear=BN21+4EJ,+United+Kingdom&amp;t=m&amp;cid=9472761568019828677&amp;ll=50.770719,0.285816&amp;spn=0.026055,0.054932&amp;z=14&amp;iwloc=A" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+        </div>
+    </section>
+    
+		{% if settings.opening-active %}
+		<section class="opening-hours-wrapper">
+		<h2>Our Opening Hours</h2>
+			<table class="opening-hours-table">
+			  <caption>Our Opening Hours</caption>
+			  <thead>
+			      <tr>
+			          <th>Day</th>
+			          <th>Opening Hours</th>
+			      </tr>
+			  </thead>
+			  <tbody>
+					<tr>
+						<td>Monday</td>
+						<td>
+              {{ settings.opening-mon | strip_html }}
+              {% if settings.meta-opening-mon %}
+                <meta itemprop="openingHours" content="Mo {{settings.meta-opening-mon}}" />
+              {% endif %}
+           </td>
+					</tr>
+					<tr>
+						<td>Tuesday</td>
+						<td>
+              {{ settings.opening-tue | strip_html }}
+              {% if settings.meta-opening-tue %}
+                <meta itemprop="openingHours" content="Tu {{settings.meta-opening-tue}}" />
+              {% endif %}
+           </td>
+					</tr>
+					<tr>
+						<td>Wednesday</td>
+						<td>
+              {{ settings.opening-wed | strip_html }}
+              {% if settings.meta-opening-wed %}
+                <meta itemprop="openingHours" content="We {{settings.meta-opening-wed}}" />
+              {% endif %}
+           </td>
+					</tr>
+					<tr>
+						<td>Thursday</td>
+						<td>
+              {{ settings.opening-thu | strip_html }}
+              {% if settings.meta-opening-thu %}
+                <meta itemprop="openingHours" content="Th {{settings.meta-opening-thu}}" />
+              {% endif %}
+           </td>
+					</tr>
+					<tr>
+						<td>Friday</td>
+						<td>
+              {{ settings.opening-fri | strip_html }}
+              {% if settings.meta-opening-fri %}
+                <meta itemprop="openingHours" content="Fr {{settings.meta-opening-fri}}" />
+              {% endif %}
+           </td>
+					</tr>
+					<tr>
+						<td>Saturday</td>
+						<td>
+              {{ settings.opening-sat | strip_html }}
+              {% if settings.meta-opening-sat %}
+                <meta itemprop="openingHours" content="Sa {{settings.meta-opening-sat}}" />
+              {% endif %}
+           </td>
+					</tr>
+					<tr>
+						<td>Sunday</td>
+						<td>
+              {{ settings.opening-sun | strip_html }}
+              {% if settings.meta-opening-sun %}
+                <meta itemprop="openingHours" content="Su {{settings.meta-opening-sun}}" />
+              {% endif %}
+           </td>
+					</tr>
+			  </tbody>
+			</table>
+		</section>
+		{% endif %}
+		
+    <div id="contactFormWrapper" class="about-contact clearfix">
+    {% form 'contact' %}
+        <h1>Send us a message&hellip;</h1>
+        {% if form.posted_successfully? %}
+            <div class="successForm feedback">
+              <p>Thanks for contacting us! We'll get back to you as soon as possible.</p>
+            </div>
+        {% endif %}
+        
+        {% if form.errors %}
+            <div class="errorForm feedback">
+                <p>Oops, sorry. We can't accept your inquiry because of the following problems:</p>
+                {% for field in form.errors %}
+                    <p>{{ field | capitalize }} - {{ form.errors.messages[field] }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+        
+        
+        <p>
+            <label>Your Name:</label><br/>
+            <input type="text" id="contactFormName" name="contact[name]" placeholder="John Woolfe" />
+        </p>
+        <p>
+            <label>Your Email:</label><br/>
+            <input type="email" id="contactFormEmail" name="contact[email]" placeholder="woolfe@example.com" />
+        </p>
+        <p>
+            <label>Your Phone Number:</label><br/>
+            <input type="telephone" id="contactFormTelephone" name="contact[phone]" placeholder="01234 000 000" />
+        </p> 
+        <p>
+            <label>Your Message:</label><br/>
+            <textarea rows="15" cols="75" id="contactFormMessage" name="contact[body]" placeholder="goes here..."></textarea>
+        </p>
+        <p>
+            <input class="btn" type="submit" id="contactFormSubmit" value="Send" />
+        </p>
+    {% endform %}	
+    </div><!-- contactWrapper -->
+		<div class="clearfix"></div>
+</article>

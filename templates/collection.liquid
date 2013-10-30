@@ -1,0 +1,46 @@
+{% paginate collection.products by 48 %}
+
+	<aside class="hidden breadcrumbs-data">
+		<p>{{collection.handle}}</p>
+	</aside>
+	
+	<script type="text/javascript">
+	
+	var categories = {{collections | json }};
+	
+	</script>
+	
+<ul class="breadcrumbs">
+  <li><a href="/" title="Back to the frontpage">Home</a></li>
+</ul>
+
+	<section id="{{collection.handle}}" class="collection">
+	    {% if collection.image %}
+    	    <header class="category-header clearfix">
+                <img class="no-pin" src="{{collection.image.src | collection_img_url: 'original'}}" alt="{{collection.title}} - Le Loup, Eastbourne">
+                <h1>{{collection.title}}</h1>
+            </header>
+        {% else %}
+            <h1>{{collection.title}}</h1>
+        {% endif %}
+	    
+        <section class="product-grid clearfix">						
+			{% for product in collection.products %}
+    			<a class="product-box" href="{{product.url}}">
+    				<div class="image-wrapper">
+							<img src="{{ product.featured_image | product_img_url: 'medium'}}" alt="{{ product.description | strip_html | truncate: 75 }} click for more information" />
+						</div>
+    				<p title="{{ product.description | strip_html }}">{{product.title | strip_html}}</p>
+						{% if product.compare_at_price_min > 0 %}
+							<div class="product-box-price product-box-price-sale">{{ product.price_min | money }}</div>
+						{% else %}
+	           <div class="product-box-price">{{ product.price_min | money }}</div>
+						{% endif %}
+    			</a>
+			{% endfor %}
+		</section>
+		<div id="pagination">
+			{{ paginate | default_pagination }}
+		</div>
+	</section>
+{% endpaginate %}
