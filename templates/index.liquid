@@ -1,21 +1,17 @@
-<!--<section class="home-slider">
-    <ol>
-        {% for c in linklists.featured-collections.links %}
-        <li>
-            <h2><span>{{c.title}}</span></h2>
-            <div>
-                <figure>
-                    <a href="{{c.url}}">
-                        <img class="no-pin" src="{{c.object.image.src | collection_img_url: 'original'}}" alt="{{c.title}} - Le Loup, Eastbourne">
-                    </a>
-                </figure>
-            </div>
-        </li>
-        {% endfor %}
-    </ol>
-</section>-->
+{% include 'slider' %}
 
 <p class="home-callout clearfix">{{ settings.home-message }}</p>
+
+<section class="featured">
+    <div class="image-wrapper">
+        <img src="{{linklists.featured-product.links.first.object.featured_image | product_img_url: 'large'}}" alt="" />
+    </div>
+    <div class="featured-content">
+        <h1>{{settings.featured-heading}}</h1>
+        <p>{{settings.featured-text}}</p>
+        <a href="{{ linklists.featured-product.links.first.url}}" class="cta">View Now</a>
+    </div>
+</section>
 
 <aside class="social clearfix social-home">
     <ul class="clearfix">

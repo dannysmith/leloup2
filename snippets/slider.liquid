@@ -1,0 +1,117 @@
+
+<section class="slider">
+	<!-- Should be 1000 x 380 -->
+  <div class="flexslider">
+
+    <ul class="slides">
+				{% if settings.slide-1-active %}
+		      <li>
+						<div class="slider-content">
+							<h1>{{settings.slide-1-heading}}</h1>
+							<p>{{settings.slide-1-text}}</p>
+						</div>
+		  	    <a href="{{settings.slide-1-url}}" class="cta">
+		  	    	{{'slide-1-image.jpg' | asset_url | img_tag }}
+		  	    </a>
+		  		</li>
+				{% endif %}
+
+
+
+				{% if settings.slide-2-active %}
+		      <li>
+						<div class="slider-content">
+							<h1>{{settings.slide-2-heading}}</h1>
+							<p>{{settings.slide-2-text}}</p>
+						</div>
+						<a href="{{settings.slide-2-url}}" class="cta">
+							{{'slide-2-image.jpg' | asset_url | img_tag }}
+						</a>
+
+		  		</li>
+				{% endif %}
+
+
+				{% if settings.slide-3-active %}
+		      <li>
+						<div class="slider-content">
+							<h1>{{settings.slide-3-heading}}</h1>
+							<p>{{settings.slide-3-text}}</p>
+
+						</div>
+		  	    <a href="{{settings.slide-3-url}}" class="cta">
+		  	    	{{'slide-3-image.jpg' | asset_url | img_tag }}
+		  	    </a>
+		  		</li>
+				{% endif %}
+
+
+				{% if settings.slide-4-active %}
+		      <li>
+						<div class="slider-content">
+							<h1>{{settings.slide-4-heading}}</h1>
+							<p>{{settings.slide-4-text}}</p>
+						</div>
+						<a href="{{settings.slide-4-url}}" class="cta">
+							{{'slide-4-image.jpg' | asset_url | img_tag }}
+						</a>
+		  		</li>
+				{% endif %}
+
+
+				{% if settings.slide-5-active %}
+		      <li>
+						<div class="slider-content">
+							<h1>{{settings.slide-5-heading}}</h1>
+							<p>{{settings.slide-5-text}}</p>
+						</div>
+						<a href="{{settings.slide-5-url}}" class="cta">
+							</li>
+						</a>
+		  	    {{'slide-5-image.jpg' | asset_url | img_tag}}
+				{% endif %}
+
+
+				{% if settings.slide-6-active %}
+		      <li>
+						<div class="slider-content">
+							<h1>{{settings.slide-6-heading}}</h1>
+							<p>{{settings.slide-6-text}}</p>
+							<a href="{{settings.slide-6-url}}" class="cta">
+								{{'slide-6-image.jpg' | asset_url | img_tag }}
+							</a>
+						</div>
+		  		</li>
+				{% endif %}
+
+
+				{% if settings.slide-7-active %}
+		      <li>
+						<div class="slider-content">
+							<h1>{{settings.slide-7-heading}}</h1>
+							<p>{{settings.slide-7-text}}</p>
+							<a href="{{settings.slide-7-url}}" class="cta">
+								{{'slide-7-image.jpg' | asset_url | img_tag }}
+							</a>
+						</div>
+		  		</li>
+				{% endif %}
+
+
+				{% if settings.slide-8-active %}
+		      <li>
+						<div class="slider-content">
+							<h1>{{settings.slide-8-heading}}</h1>
+							<p>{{settings.slide-8-text}}</p>
+							<a href="{{settings.slide-8-url}}" class="cta">
+								{{'slide-8-image.jpg' | asset_url | img_tag }}
+							</a>
+						</div>
+		  		</li>
+				{% endif %}
+    </ul>
+
+  </div>
+  <div style="width:1000px;height:5px"></div>
+
+</section>

@@ -3,18 +3,20 @@
   More details here: http://net.tutsplus.com/articles/news/lessons-learned-from-building-shopify-themes/
 {% endcomment %}
 
-<section class="product-grid clearfix">						
+<section class="product-grid clearfix">
 	{% for collection in collections %}
 			<a class="product-box" href="{{collection.url}}">
-  				<div class="image-wrapper">
-            {% if collection.image %}
+        {% if collection.image %}
+  				<div class="image-wrapper" style="background-image: url({{collection.image.src | collection_img_url: 'large'}});">
               <img src="{{collection.image.src | collection_img_url: 'large'}}" alt="{{collection.title}} - Le Loup, Eastbourne">
+            </div>
             {% else %}
+            <div class="image-wrapper" style="background-image: url({{ 'page-search-result.jpg' | asset_url }});">
 				       <img class="nopin" src="{{ 'page-search-result.jpg' | asset_url }}" alt="{{ collection.description | strip_html | truncate: 75 }} click for more information" />
-            {% endif %}
-  				</div>
+          </div>
+        {% endif %}
 				<p title="{{ collection.description | strip_html }}">{{collection.title | strip_html}}</p>
-        <div class="product-box-price">View collection</div>          
+        <div class="product-box-price">View collection</div>
 			</a>
 	{% endfor %}
 </section>

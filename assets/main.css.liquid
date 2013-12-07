@@ -6,7 +6,7 @@
 		Manyhats Design, UK
 		Written by Danny Smith (danny@manyhatsdesign.com)
 
-		This stylesheet is offered to every browser. 
+		This stylesheet is offered to every browser.
 		It contains all major styling for Le Loup including media queries.
 *******************************************************************************/
 
@@ -25,7 +25,7 @@
 	box-sizing: border-box;
 	*behavior: url({{ 'boxsizing-polyfill.htc' | asset_url }});
 }
-	
+
 html,
 button,
 input,
@@ -267,7 +267,7 @@ html,body /* Fix for whitespace on right bug in FF */
     width: 100%;
     margin: 0px;
     padding: 0px;
-    overflow-x: hidden; 
+    overflow-x: hidden;
 }
 
 body {
@@ -278,7 +278,7 @@ body {
 }
 
 #wrapper {
-	max-width: 1000px;
+	max-width: 1400px;
 	margin: 0 auto;
 	background: rgba(255,255,255,0.8); /*0.8*/
 	-moz-box-shadow: 		0px 0px 30px rgba(0,0,0,0.1);
@@ -346,7 +346,7 @@ a {
 a:active, a:hover {
 	text-decoration: underline;
 	color: #D16679;
-} 
+}
 
 .collection h1 {
 	margin-left: 1.2%;
@@ -356,7 +356,7 @@ a:active, a:hover {
 /* @group Picture Frame Images */
 
 /* Expects <div class="pictureframe"><img /></div> */
-.pictureframe > img {	
+.pictureframe > img {
 	border-width: 13px 13px 12px 12px;
 		 -moz-border-image: url({{ 'border2.png' | asset_url }}) 13 13 12 12 repeat;
 	  -webkit-border-image: url({{ 'border2.png' | asset_url }}) 13 13 12 12 repeat;
@@ -415,23 +415,23 @@ a:active, a:hover {
 	border: none;
 	content: "\201C" attr(data-pullquote) "\201C";
 	text-indent: -1%;
-	
+
 	/* Pull out to the right, modular scale based margins. */
 	float: left;
 	width: 23.5%;
 	margin: 0 2% 0 0;
-	
+
 	/* Baseline correction */
 	position: relative;
 	/* top: 5px; */
-	
+
 	/* Typography */
 	font-size: 1.5em; /* 21 / 14 */
 	line-height: 1.5em;
 	font-family: "futura-pt", Futura, sans-serif;
 	font-style: normal;
 	font-weight: 400;
-	
+
 	/* Border */
 	border-top: 		10px solid rgba(103,87,91, 1);
 	border-bottom:	10px solid rgba(103,87,91, 1);
@@ -443,8 +443,8 @@ a:active, a:hover {
 
 #header-main {
 	position: relative;
-	height: 110px;
-	max-width: 1008px;
+	height: 140px;
+	max-width: 1408px;
 	margin: 0 auto;
 	background: #BFDAE7 url({{ 'stripes.png' | asset_url }}) repeat;
 	border-radius: 0;
@@ -458,7 +458,7 @@ a:active, a:hover {
 	background: url({{ 'stripes.png' | asset_url }}) repeat,    -ms-linear-gradient(-45deg,  rgba(191,218,231,1) 0%, rgba(201,219,226,0.8) 100%); /* IE10+ */
 	background: url({{ 'stripes.png' | asset_url }}) repeat,        linear-gradient(135deg,  rgba(191,218,231,1) 0%, rgba(201,219,226,0.8) 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bfdae7', endColorstr='#b3c9dbe2',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-	
+
 }
 
 #header-main hgroup {
@@ -586,7 +586,7 @@ a:active, a:hover {
 	text-align: left;
 	width: 100%;
 	padding: 0.7em 0 0.5em 0;
-	
+
 	font-family: "futura-pt", FacitWeb, sans-serif;
 	text-transform: uppercase;
 	font-weight: 300;
@@ -689,7 +689,15 @@ a:active, a:hover {
 	box-shadow: inset 0 0 40px 2px rgba(0, 100, 100, 0.15);
 	/* For JS hack to crop disproportained images */
 	background-position: center;
-  background-size: cover;
+    background-size: cover;
+    height: 160px;
+}
+
+.product-box .image-wrapper img {
+/*    min-height: 100%;
+    min-width: 100%;*/
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    opacity: 0;
 }
 
 .product-box-price {
@@ -737,7 +745,7 @@ a.product-box, a.product-box:hover {
 .product-row .product-box {
 	margin-right: 2%;
 	float: left;
-	
+
 	transition:					all 0.2s;
 	-moz-transition:		all 0.2s;
 	-webkit-transition:	all 0.2s;
@@ -746,13 +754,13 @@ a.product-box, a.product-box:hover {
 .product-row .product-box:nth-child(last) {
 	margin-right: 1.2%;
 }
- 
-.product-row .product-box:nth-child(odd) {	 
+
+.product-row .product-box:nth-child(odd) {
     -webkit-transform:rotate(1.5deg);
 	-moz-transform:rotate(1.5deg);
 	transform:rotate(1.5deg);
 }
-.product-row .product-box:nth-child(even) {	 
+.product-row .product-box:nth-child(even) {
     -webkit-transform:rotate(-1deg);
 	-moz-transform:rotate(-1deg);
 	transform:rotate(-1deg);
@@ -761,7 +769,7 @@ a.product-box, a.product-box:hover {
 .product-row .product-box:hover {
     -webkit-transform:rotate(0deg);
 	-moz-transform:rotate(0deg);
-	transform:rotate(0deg);	
+	transform:rotate(0deg);
 }
 
 /* Sort-of-messy Hack to handle jQuery overriding things. See Pinit button javascript. */
@@ -851,7 +859,7 @@ button, .btn {
 .product-image-main {
 	width: 100%;
 	position: relative;
-	
+
 	/* Border */
 	border-width: 10px 8px 8px 7px;
 	-moz-border-image: 		url({{ 'border-green.png' | asset_url }}) 9 8 8 7 repeat;
@@ -894,8 +902,8 @@ button, .btn {
 	position: absolute;
 	border-radius: 100%;
 	z-index: 2;
-	box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.85), 
-							0 0 7px 7px rgba(0, 0, 0, 0.25), 
+	box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.85),
+							0 0 7px 7px rgba(0, 0, 0, 0.25),
 							inset 0 0 40px 2px rgba(0, 0, 0, 0.25);
 	display: none;
 }
@@ -940,7 +948,7 @@ button, .btn {
 	padding: 7px;
 	margin-left: -6%;
 	margin-right: 3.105590062%;
-	
+
 	/*	d = 14.6 = desired with wrt document (2 columns)
 			c = 64.4 = container width (8 columns)
 			d/c*100 = desired width
@@ -950,14 +958,14 @@ button, .btn {
 	background: #E4E6E8 url({{ 'stripes.png' | asset_url }}) repeat;
 	border-radius: 3px;
 	box-shadow: 0 0 0 1px #E4E6E8, 0 0 5px rgba(10,10,0,.7);
-	
+
 	-webkit-transform:rotate(5deg);
 			 -o-transform:rotate(5deg);
 		 -moz-transform:rotate(5deg);
 					transform:rotate(5deg);
 	text-transform: uppercase;
 	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
-	
+
 }
 
 .product-buynow-price span {
@@ -983,7 +991,7 @@ button, .btn {
 	text-shadow: none;
 	color: #4E1414;
 	box-shadow: 0 0 0 1px rgba(0,0,0,.6), 0 0 5px rgba(0,0,0,.4);
-	
+
 }
 
 .product-buynow-price-sale span {
@@ -1011,7 +1019,7 @@ button, .btn {
 	margin-right: 0;
 	height: 45px;
 	background-repeat: no-repeat;
-	
+
 	background-color: hsl(349, 85%, 75%) !important;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#facbd3", endColorstr="#f5899c");
   background-image: -khtml-gradient(linear, left top, left bottom, from(#facbd3), to(#f5899c));
@@ -1021,9 +1029,9 @@ button, .btn {
   background-image: url({{ 'wolf-small.png' | asset_url }}), -webkit-linear-gradient(top, #facbd3, #f5899c);
   background-image: url({{ 'wolf-small.png' | asset_url }}), -o-linear-gradient(top, #facbd3, #f5899c);
   background-image: url({{ 'wolf-small.png' | asset_url }}), linear-gradient(#facbd3, #f5899c);
-										
-	background-position: 130px 45px, 0 0; /*gradient is 0 0, wolf is 140 10 */ 
-	
+
+	background-position: 130px 45px, 0 0; /*gradient is 0 0, wolf is 140 10 */
+
   border-color: #f5899c #f5899c hsl(349, 85%, 71.5%);
   color: #333 !important;
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.23);
@@ -1040,7 +1048,7 @@ button, .btn {
 	text-align: left;
 	padding-left: 7px;
 	font-size: 0.7em;
-	
+
 	line-height: 1.171428571em; /*Calculated from 0.82 ems */
 }
 
@@ -1098,13 +1106,13 @@ button, .btn {
 	z-index:1;
 	position: relative;
 	border-collapse: separate;
-	
+
 	background: #E4E6E8 url({{ 'stripes.png' | asset_url }}) repeat;
 	border-radius: 3px;
 	box-shadow: 0 0 0 1px #E4E6E8, 0 0 5px rgba(10,10,0,.7);
 	text-transform: uppercase;
 	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
-	
+
 	padding: 0.5em 2% 0 2%;
 	text-align: center;
 }
@@ -1180,7 +1188,7 @@ button, .btn {
 	font-size: 1.4em;
 	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
 	padding-bottom: 0.5em;
-	
+
 }
 .checkout tfoot small {
 	opacity: .7;
@@ -1196,13 +1204,13 @@ button, .btn {
 	display: inline-block;
 	position: relative;
 	margin: 1em 2%;
-	width: 17.176470588%; /* 18.1 / 85 */ 
+	width: 17.176470588%; /* 18.1 / 85 */
 	font-size: 1.2em;
 	margin-right: 0;
 	margin-bottom: 0;
 	height: 45px;
 	background-repeat: no-repeat;
-	
+
 	background-color: hsl(349, 85%, 75%) !important;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#facbd3", endColorstr="#f5899c");
   background-image: -khtml-gradient(linear, left top, left bottom, from(#facbd3), to(#f5899c));
@@ -1212,9 +1220,9 @@ button, .btn {
   background-image: -webkit-linear-gradient(top, #facbd3, #f5899c);
   background-image: -o-linear-gradient(top, #facbd3, #f5899c);
   background-image: linear-gradient(#facbd3, #f5899c);
-										
-	background-position: 0 0; /*gradient is 0 0, wolf is 140 10 */ 
-	
+
+	background-position: 0 0; /*gradient is 0 0, wolf is 140 10 */
+
   border-color: #f5899c #f5899c hsl(349, 85%, 71.5%);
   color: #333 !important;
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.23);
@@ -1291,7 +1299,7 @@ button, .btn {
 /** Styles are in the plugin's liteaccordian.css but overriden here for simplicity **/
 
 .home-slider {
-	width: 100%; 
+	width: 100%;
 	position: relative;
   padding: 5px 0;
 	margin-top: 0;
@@ -1313,7 +1321,7 @@ button, .btn {
 	color: white;
 	/* text-shadow: -1px 1px 0 #5b5b5b; */
 	/* background-image: url({{ 'bg_noise.png' | asset_url }}); */
-	margin-top: 0;   
+	margin-top: 0;
 	border-radius: 4px;
 	font-weight: 300;
 }
@@ -1325,17 +1333,17 @@ button, .btn {
 }
 
 /* Arrow */
-.home-slider .slide > h2.selected:after { 
-    content: ''; 
-    display: block; 
-    height: 11px; 
-    width: 11px; 
-    position: absolute; 
-    bottom: -4px; 
+.home-slider .slide > h2.selected:after {
+    content: '';
+    display: block;
+    height: 11px;
+    width: 11px;
+    position: absolute;
+    bottom: -4px;
     right: 38px;
-    -webkit-transform: rotate(45deg); 
-    -moz-transform: rotate(45deg); 
-    -o-transform: rotate(45deg); 
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
     transform: rotate(45deg);
     -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
@@ -1412,11 +1420,11 @@ footer {
 .footer-bar li {
 	list-style: none;
 	position: relative;
-	
+
 	display: block;
 	float: left;
 	width: 100%;
-	
+
 	background: #E4E6E8;
 	border-radius: 3px;
 	box-shadow: 0 0 0 1px #E4E6E8, 0 0 5px rgba(10,10,0,.7), 0 1px 1px rgba(30,30,30,.1);
@@ -1424,7 +1432,7 @@ footer {
 	line-height: 2.5em;
 	margin: 0 0 .8em 0;
 	padding: 0 1%;
-	
+
 	font-family: "facitweb", FacitWeb, sans-serif;
 	font-weight: 400;
 	text-transform: uppercase;
@@ -1497,20 +1505,20 @@ footer {
 	display: block;
 	float: left;
 	height: 9em;
-	
+
 	width: 22.670807453%; /* 14.6 / 64.4 * 100 - 4 columns */
 	margin-right: 3.105590062%; /* 2 / 64.4 * 100 - gutter */
-	
+
 	overflow: hidden;
-	
+
 	border: 1px solid rgba(062,85,95,0.6);
 	box-shadow: 0 0 5px rgba(10,10,0,.2);
-	
+
 	transition:					all 0.15s;
 	-moz-transition:		all 0.15s;
 	-webkit-transition:	all 0.15s;
 	-o-transition:			all 0.15s;
-	
+
 	opacity: .8;
 }
 
@@ -1548,7 +1556,7 @@ footer {
 	display: block;
 	width: 22.9%;
 	margin-left: 1.2%;
-	
+
 }
 
 .social ul {
@@ -1564,18 +1572,18 @@ footer {
 .social li {
 	list-style: none;
 	position: relative;
-	
+
 	display: block;
 	float: left;
 	width: 100%;
-	
+
 	border-radius: 3px;
 	box-shadow: 0 0 0 1px rgba(255,255,255,0.2), 0 0 5px rgba(10,10,0,.7);
 	height: 2.4em;
 	line-height: 2.5em;
 	margin: 0 0 .8em 0;
 	padding: 0 1%;
-	
+
 	font-family: "facitweb", FacitWeb, sans-serif;
 	font-weight: 400;
 	text-transform: uppercase;
@@ -1609,7 +1617,7 @@ footer {
 	background: #3B5998;
 	text-shadow: 0 1px 1px rgba(255,255,255,0.2),
 							 0 -1px 1px rgba(0,0,0,0.2);
-							
+
 	box-shadow: 0 0 0 1px rgba(255,255,255,0.2),
 							0 0 0 1px rgba(47, 71, 122,9),
 							0 0 5px rgba(59,89,152,.7);
@@ -1653,7 +1661,7 @@ footer {
 .blog-slider {
 	width: 97.6%;
 	margin-left: 1.2%;
-	
+
 	/* Replace Code Below with actual slider CSS */
 	height: 15em;
 	background: #939393;
@@ -1686,7 +1694,7 @@ footer {
 	-moz-box-shadow: 		0px 0px 5px #888;
 	-webkit-box-shadow:	0px 0px 5px #888;
 	box-shadow:					0px 0px 5px #888;
-	
+
 	font-size: 0.8em;
 }
 .blog-post-row-box:nth-child(1) {margin-left: 1.2%;}
@@ -1953,11 +1961,11 @@ footer {
 					column-count: 3;
 	-webkit-column-count: 3;
 		 -moz-column-count: 3;
-		
+
 			-moz-column-gap: 2.049180328%; /* 2 / 97.6 * 100 */
 	 -webkit-column-gap: 2.049180328%;
 					 column-gap: 2.049180328%;
-					
+
 	margin-bottom: 2em;
 }
 
@@ -2121,10 +2129,10 @@ footer {
 	width: 39.5%;
 	margin: 2em 0 0 2%;
 	padding: 10px;
-	
+
 	background: #E4E6E8; /* url({{ 'stripes.png' | asset_url }}) repeat;*/
 	border-radius: 3px;
-	
+
 	box-shadow: 0 0 0 1px #E4E6E8, 0 0 5px rgba(10,10,0,.7);
 	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
 	z-index: 1;
@@ -2310,7 +2318,7 @@ dl.accordion dd:last-of-type {
   top: -1px;
 }
 dl.accordion dt:last-of-type {
-  border-bottom: none; 
+  border-bottom: none;
 }
 
 dl.accordion dt a {
@@ -2443,12 +2451,12 @@ dl.accordion dt a:hover {
 
 
 @media only screen and (max-width: 1050px) {
-	
+
 	/* Make checkout button text smaller */
 	.btn-checkout {
 		font-size: 0.9em;
 	}
-	
+
 	/* Make text of gifts box in footer taller so it fits */
 	.footer-bar .gifts span {
 		height: 3.6em;
@@ -2460,12 +2468,12 @@ dl.accordion dt a:hover {
 
 
 @media only screen and (max-width: 1010px) {
-	
+
 	/* Make footer smaller */
 	.footer-meta {
 		font-size: 0.8em;
 	}
-	
+
 	/* Make checkout table product title and buynow buttons text smaller*/
 	.checkout td.h3 {
 		font-size: 1.2em;
@@ -2476,24 +2484,24 @@ dl.accordion dt a:hover {
 }
 
 @media only screen and (max-width: 995px) {
-	
+
 	/* Reduce size of header tagline and main-navigation */
 	#header-main h2 {
 		font-size: 1em;
 	}
-	
+
 	.nav-main {
 		font-size: 0.8em;
 		font-weight: 400;
 	}
 }
 @media only screen and (max-width: 850px) {
-	
+
 	/* Shrink size of blog post box header */
 	.blog-post-row-box h2 {
 		font-size: 1.2em;
 	}
-	
+
 	/* Make a product row show four product boxes only */
 	.product-box {
 		width: 22.9%; /* Four Boxes */
@@ -2502,23 +2510,23 @@ dl.accordion dt a:hover {
 	.product-row .product-box:nth-last-child(2) {
 		display: none;
 	}
-	
+
 	/* Set buy now button to the same as it's hover state */
 	.btn-product-buynow {
 		text-align: left;
 		padding-left: 7px;
 		height: 30px;
 	}
-	
+
 	/* Reduce padding in main navigation */
 	.nav-main ul li a {
 		padding: 2px 0.5em;
 	}
-	
+
 }
 
 @media only screen and (max-width: 770px) {
-	
+
 	/* make the checkout table full-width & shrink the font size */
 	.checkout {
 		width: 97.6%;
@@ -2530,36 +2538,36 @@ dl.accordion dt a:hover {
 	.checkout td.h3 {
 		font-size: 1em;
 	}
-	
+
 	/* Hide the blog Slider and display the posts in two rows */
 	.blog-slider {display: none;}
-	
+
 	.blog-post-row-box, .blog-post-row-box:nth-child(1) {
 		width: 47.8%;
 		margin: 0 0 1em 1%;
 		text-align: center;
 	}
-	
+
 	.blog-post-row-box a {
 		max-height: 170px;
 		overflow: hidden;
 	}
-	
+
 	/* Hide the related blog posts */
 	.blog-sidebar {
 		display: none;
 	}
-	
+
 	.blog-post {
 		width: 97.6%;
 		float: none;
 	}
-	
+
 	/* Make Header a little bigger */
 	#header-main {
 		height: 120px;
 	}
-	
+
 	/* Make Search Results Smaller & hide button */
 	.search-result {
 		font-size: 0.8em;
@@ -2568,7 +2576,7 @@ dl.accordion dt a:hover {
 		margin-bottom: 0;
 	}
 	.search-result a.btn {display: none;}
-	
+
 	/* Change widths of search image and text */
 	.search-result img {
 		width: 31.2%;
@@ -2578,11 +2586,11 @@ dl.accordion dt a:hover {
 		width: 64.4%;
 		margin: 0;
 	}
-	
+
 }
 
 @media only screen and (max-width: 700px) {
-	
+
 	/* Show Small Nav */
 	.nav-main {display: none;}
 	.nav-main-small {
@@ -2590,16 +2598,16 @@ dl.accordion dt a:hover {
 		width: 100%;
 		padding-top: 1em;
 	}
-	
+
 	.nav-main-small label {display: none;}
-	
+
 	.nav-main-small select {
 		width: 64.4%;
 		float: left;
 		display: inline;
 		margin-left: 1.2%;
 	}
-	
+
 	/* Show small search field and hide one in header */
 	.form-search {display: none;}
 
@@ -2613,12 +2621,12 @@ dl.accordion dt a:hover {
 		width: 31.2%; /* 4 cols */
 		margin-left: 2%;
 	}
-	
+
 	/* Move Basket up to top */
 	.basket {
 		top: 5px;
 	}
-	
+
 	/* Align contact form  under map & change about text to 2 columns */
 	.about-find-us {
 		float: none;
@@ -2640,7 +2648,7 @@ dl.accordion dt a:hover {
 		-webkit-column-count: 2;
 			 -moz-column-count: 2;
 	}
-	
+
 	.about-map iframe {
 		height: 15em;
 	}
@@ -2655,19 +2663,19 @@ dl.accordion dt a:hover {
 		text-align: center;
 		height: 40px;
 	}
-	
+
 	/* Make checkout button wider */
 	.btn-checkout {
 		width: 31.2%;
 	}
-	
-	
+
+
 	/* Drop Help Page down so shipping is below intro */
 	.help-intro {
 		width: 97.6%;
 		float: none;
 	}
-	
+
 	.delivery-table {
 		margin-left: 1.2%;
 		width: 97.6%;
@@ -2683,17 +2691,17 @@ dl.accordion dt a:hover {
 	.product-row .product-box:nth-last-child(3) {
 		display: none;
 	}
-	
+
 	/* Adjust price for product page */
 	.product-buynow-price {
 		font-size: 0.8em;
 	}
-	
+
 	/* Hide product-social buttons for now*/
 	.product-social {
 		display: none;
 	}
-	
+
 	/* Reduce size of homepage callout */
 	.home-callout {
 		font-size: 1.2em;
@@ -2702,20 +2710,20 @@ dl.accordion dt a:hover {
 }
 
 @media only screen and (max-width: 610px) {
-	
+
 	/* Product Image is almost Full-width */
 	.product-image {
 		float: none;
 		width: 81%;
 		margin-left: 9.5%;
 	}
-	
+
 /*	.product-image {
 		float: none;
 		width: 47.8%;
-		margin-left: 26.1%; /* 3 columns 
+		margin-left: 26.1%; /* 3 columns
 	}*/
-	
+
 	/* Change layout of product image and other three image boxes */
 	.product-details {
 		float: none;
@@ -2738,7 +2746,7 @@ dl.accordion dt a:hover {
 			 -moz-transform:rotate(0deg);
 					  transform:rotate(0deg);
 	}
-	
+
 	/* Show the blog post boxes in one column at almost full width.*/
 	.blog-post-row-box, .blog-post-row-box:nth-child(1) {
 		float: none;
@@ -2749,7 +2757,7 @@ dl.accordion dt a:hover {
 }
 
 @media only screen and (max-width: 500px) {
-	
+
 	/* Reduce header height, scale header images and align h2 to left */
 	#header-main {
 		height: 100px;
@@ -2759,27 +2767,27 @@ dl.accordion dt a:hover {
 		width: 35%; /* Guess at size */
 		left: 90px;
 	}
-	
+
 	#header-main h2 {
 		left: 8px;
 		right: auto;
 	}
-	
+
 	#header-main hgroup {
 		background-size: 80px auto;
 	}
-	
+
 	/* Reduce size of homepage callout */
 	.home-callout {
 		font-size: 1em;
 		font-weight: 400;
 	}
-	
+
 	/* Use smaller image for family-image */
 	.about-family-image {
 		background-image: url({{ 'family2-small.jpg' | asset_url }});
 	}
-	
+
 	/* Sort out no-search-results page */
 	.search-noresults {background: none;}
 	.search-noresults h2 {
@@ -2787,11 +2795,11 @@ dl.accordion dt a:hover {
 		width: 100%;
 		font-size: 2em;
 	}
-	
+
 }
 
 @media only screen and (max-width: 400px) {
-	
+
 	/* Footer and about boxes are full-width */
 	.hannah,
 	.gemma,
@@ -2806,35 +2814,35 @@ dl.accordion dt a:hover {
 	}
 	.footer-bar ul {padding-top: 1em;}
 	.about-whoarewe .pictureframe img {width: 100%;}
-	
+
 	/* About text is one column */
 	.about-text {
 						column-count: 1;
 		-webkit-column-count: 1;
 			 -moz-column-count: 1;
 	}
-	
+
 	/* reduce size of social text */
 	.social {
 		font-size: 0.8em;
 	}
-	
+
 	/*	Shrink H2 in header */
 	#header-main h2 {
 		font-size: 0.8em;
 	}
-	
+
 	/*	Shrink h2 text in checkout */
 	.checkout td.h3 {
 		font-size: 0.8em;
 		line-height: 1;
 	}
-	
+
 	/*	Hide social icons on blog post */
 	.product-social, .blog-post-social {
 		display: none;
 	}
-	
+
 	/* Shrink text size in FAQ */
 	dl.accordion dt a {
 		font-size: 0.8em;
@@ -2842,7 +2850,7 @@ dl.accordion dt a:hover {
 }
 
 @media only screen and (max-width: 350px) {
-	
+
 	/*	Shrink Price on product page */
 	.product-buynow-price {
 		position: relative;
@@ -2856,7 +2864,7 @@ dl.accordion dt a:hover {
 		font-size: 20px;
 		top: 15px;
 		left: 10px;
-	}	
+	}
 
 	/*	Shrink text of footer "Home, Gifts & Fragrance" further */
 	.footer-bar .gifts span {
@@ -2890,7 +2898,7 @@ dl.accordion dt a:hover {
    ========================================================================== */
 
 .guides {border: 1px solid rgba(79, 253, 254,1);}
-	
+
 .ir {
     background-color: transparent;
     border: 0;
@@ -3041,7 +3049,7 @@ dl.accordion dt a:hover {
 		Manyhats Design, UK
 		Written by Danny Smith (danny@manyhatsdesign.com)
 
-		This stylesheet is offered to all browsers from shopify. 
+		This stylesheet is offered to all browsers from shopify.
 		It contains styles for the shop.
 		This should be properly merged into main.css for production.
 *******************************************************************************/
@@ -3078,7 +3086,7 @@ dl.accordion dt a:hover {
 	margin-right: 2%;
 	margin-bottom: 2em;
 	float: left;
-	
+
 	transition:					all 0.2s;
 	-moz-transition:		all 0.2s;
 	-webkit-transition:	all 0.2s;

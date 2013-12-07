@@ -1,0 +1,129 @@
+.grey-stitched {
+	padding: 10px;
+
+	background: #E4E6E8;
+	border-radius: 3px;
+
+	box-shadow: 0 0 0 1px #E4E6E8, 0 0 5px rgba(10,10,0,.7);
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+	z-index: 1;
+}
+
+.grey-stitched:after {
+	content: "";
+	position: absolute;
+	top: 3px;
+  bottom: 3px;
+  left: 3px;
+  right: 3px;
+  z-index: -1;
+  border: 1px dashed #FB91A5;
+	border-radius: 5px;
+}
+
+.navigation li, ul {
+	display: block;
+	width: 100%;
+	background: teal;
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+	margin: 0;
+	padding: 8px;
+}
+.navigation ul.nav-main-child {display: none;}
+
+@media screen and (min-width: 1000px) {
+
+.navigation {
+	position: relative;
+	float: left;
+	width: 100%;
+	z-index: 5;
+}
+
+.navigation li,
+.navigation ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.navigation > ul {
+	text-align: justify;
+}
+
+.navigation > ul > li {
+	display: inline-block;
+	position: relative;
+}
+
+.navigation > ul > li > ul {
+	display: none;
+	position: absolute;
+	float: left;
+	width: 200px;
+	top: 2em;
+	border: 1px solid black;
+	background: white;
+}
+
+.navigation > ul:after {
+  content: '';
+  display: inline-block;
+  width: 100%;
+}
+
+.navigation a {
+	color: black;
+	/*font-family: "facitweb", FacitWeb, sans-serif;*/
+	font-weight: 300;
+	font-size: 1.1em;
+	padding: 10px;
+}
+.navigation a:hover {
+	text-decoration: none;
+}
+
+.navigation a > span {border-bottom: 1px dotted #ddd;}
+.navigation > ul > li:nth-child(1) a > span {text-transform: uppercase; border-bottom: 1px dotted #FB91A5;}
+.navigation > ul > li:nth-child(2) a > span {text-transform: uppercase; border-bottom: 1px dotted red;}
+.navigation > ul > li:nth-child(3) a > span {text-transform: uppercase; border-bottom: 1px dotted teal;}
+.navigation > ul > li:nth-child(4) a > span {text-transform: uppercase; border-bottom: 1px dotted purple;}
+
+
+.navigation li.no-children:hover {
+	color: white;
+	background: red;
+}
+.navigation li.has-children:hover {
+	color: white;
+	background: red;
+	border: none;
+}
+
+.navigation li.has-children:hover > ul {
+	display: block;
+}
+
+.navigation .main-nav-child li {
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+	margin: 0;
+}
+.navigation .main-nav-child li a {
+	display: block;
+	padding: 8px;
+	width: 100%;
+	height: 100%;
+}
+.navigation .main-nav-child li a:hover {
+	background: rgba(0,0,0,0.1);
+}
+
+.navigation .main-nav-child li:last-child {
+	border-bottom: none;
+}
+
+}
+/* Style out the menu as full-width indented menus with a class of .-navigation-small. Apply thant class using JS on certain breakpoints */
+
+
+

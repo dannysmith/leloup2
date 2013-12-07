@@ -17,14 +17,14 @@
 	  Buy {{product.title}} from Le Loup Eastbourne
  {% endif %}
 {% elsif template contains "collection" %}
-	{{collection.title}} from Le Loup Eastbourne          
+	{{collection.title}} from Le Loup Eastbourne
 {% else %}
 {{settings.other-pages-title }}
-{% endif %}        
+{% endif %}
 </title>
-  
+
   <!--~~~~~~~~~~~~~~~~~~~~ Page Meta Description ~~~~~~~~~~~~~~~~~~~~-->
-  
+
 	{% if template == "product" %}
 		<meta name="description" content="{{ page_description }}" />
 		<meta property="og:title" content="{{ product.title }}" />
@@ -34,13 +34,13 @@
    <meta property="og:site_name" content="Le Loup" />
    <meta property="fb:admins" content="771840267" />
   {% elsif template contains "collection" %}
-	  <meta name="description" content="{{ page_description }}" />	
+	  <meta name="description" content="{{ page_description }}" />
 	{% else %}
 		<meta name="description" content="{{ settings.other-pages-description }}">
 	{% endif %}
-    
+
   <!--~~~~~~~~~~~~~~~~~~~~ Page Meta Keywords ~~~~~~~~~~~~~~~~~~~~-->
-    
+
 	{% if template == "product" %}
 		<meta name="keywords" content="{{ settings.meta-keywords }}, , {% for tag in product.tags %}{{tag}}, {% endfor %}" />
 	{% else %}
@@ -50,10 +50,11 @@
   <!--~~~~~~~~~~~~~~~~~~~~ Stylesheets ~~~~~~~~~~~~~~~~~~~~-->
     <!--[if ! lte IE 6]><!-->
         {{ 'normalize.min.css' | asset_url | stylesheet_tag }}
+        {{ 'flexslider.css' | asset_url | stylesheet_tag }}
         {{ 'main.css' | asset_url | stylesheet_tag }}
-        {{ 'v2.css' | asset_url | stylesheet_tag }}
+        {{ 'version2.css' | asset_url | stylesheet_tag }}
 		    {{ 'liteaccordion.css' | asset_url | stylesheet_tag }}
-         
+
         {% if template contains 'customers' %}
 		      {{ 'account.css' | asset_url | stylesheet_tag }}
         {% endif %}
@@ -66,7 +67,7 @@
     <!--[if lte IE 6]>
       <link rel="stylesheet" href="http://universal-ie6-css.googlecode.com/files/ie6.1.1.css" media="screen, projection">
     <![endif]-->
-    
+
     {{ 'modernizr-2.6.1.min.js' | asset_url | script_tag }}
 
   <!--~~~~~~~~~~~~~~~~~~~~ Other links ~~~~~~~~~~~~~~~~~~~~-->
@@ -76,4 +77,3 @@
 	<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
 	<link rel="canonical" href="{{ canonical_url }}"/>
 
-	

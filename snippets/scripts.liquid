@@ -18,6 +18,7 @@
 {% endif %}
 
 <!-- Unminified for use in dev -->
+{{ 'jquery.flexslider.min.js' | asset_url | script_tag }}
 {{ 'plugins.js' | asset_url | script_tag }}
 {{ 'main.js' | asset_url | script_tag }}
 {{ 'shame.js' | asset_url | script_tag }}
@@ -26,7 +27,7 @@
 <!--[if lte IE 8]>
     {{ 'jquery.masonry.min.js' | asset_url | script_tag }}
 <![endif]-->
-  
+
 <!-- Facebook -->
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
@@ -45,7 +46,7 @@
   var analytics=analytics||[];analytics.load=function(e){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/"+e+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);var r=function(e){return function(){analytics.push([e].concat(Array.prototype.slice.call(arguments,0)))}},i=["identify","track","trackLink","trackForm","trackClick","trackSubmit","pageview","ab","alias","ready"];for(var s=0;s<i.length;s++)analytics[i[s]]=r(i[s])};
   analytics.load("0cultzbjk3");
 </script>
-		
+
 <!-- Fluid Columns Overlay -->
 <div id="overlay"><div id="overlay-inner"><div id="col-1">6.3%</div><div id="col-2">6.3%</div><div id="col-3">6.3%</div><div id="col-4">6.3%</div><div id="col-5">6.3%</div><div id="col-6">6.3%</div><div id="col-7">6.3%</div><div id="col-8">6.3%</div><div id="col-9">6.3%</div><div id="col-10">6.3%</div><div id="col-11">6.3%</div><div id="col-12">6.3%</div></div></div>
 <style>

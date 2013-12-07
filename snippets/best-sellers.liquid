@@ -2,12 +2,12 @@
 
 <!-- Relies on a collection called best-sellers containing all products and being ordered by "best selling". -->
 
-<section class="product-row clearfix">	
+<section class="product-row clearfix">
 	<h2>How about one of these?</h2>
-	
+
 	{% for product in best.products limit:6 %}
 		<a class="product-box" href="{{product.url}}">
-			<div class="image-wrapper">
+			<div class="image-wrapper" style="background-image: url({{ product.featured_image | product_img_url: 'medium'}});">
 				<img src="{{ product.featured_image | product_img_url: 'medium'}}" alt="{{ product.description | strip_html | truncate: 75 }} click for more information" />
 			</div>
 			<p title="{{ product.description | strip_html }}">{{product.title | strip_html}}</p>
@@ -17,6 +17,6 @@
        <div class="product-box-price">{{ product.price_min | money }}</div>
 			{% endif %}
 		</a>
- 
+
 	{% endfor %}
 </section>

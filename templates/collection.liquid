@@ -1,18 +1,18 @@
 {% paginate collection.products by 48 %}
 
-	<aside class="hidden breadcrumbs-data">
+<!-- 	<aside class="hidden breadcrumbs-data">
 		<p>{{collection.handle}}</p>
 	</aside>
-	
+
 	<script type="text/javascript">
-	
+
 	var categories = {{collections | json }};
-	
+
 	</script>
-	
+
 <ul class="breadcrumbs">
   <li><a href="/" title="Back to the frontpage">Home</a></li>
-</ul>
+</ul> -->
 
 	<section id="{{collection.handle}}" class="collection">
 	    {% if collection.image %}
@@ -23,11 +23,11 @@
         {% else %}
             <h1>{{collection.title}}</h1>
         {% endif %}
-	    
-        <section class="product-grid clearfix">						
+
+        <section class="product-grid clearfix">
 			{% for product in collection.products %}
     			<a class="product-box" href="{{product.url}}">
-    				<div class="image-wrapper">
+    				<div class="image-wrapper" style="background-image: url({{ product.featured_image | product_img_url: 'medium'}});">
 							<img src="{{ product.featured_image | product_img_url: 'medium'}}" alt="{{ product.description | strip_html | truncate: 75 }} click for more information" />
 						</div>
     				<p title="{{ product.description | strip_html }}">{{product.title | strip_html}}</p>

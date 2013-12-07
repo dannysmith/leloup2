@@ -13,10 +13,10 @@
 {% else %}
   <h2>Search Results for "{{ search.terms }}" ({{ search.results_count }})</h2>
 
-  <section class="product-grid clearfix">						
+  <section class="product-grid clearfix">
   	{% for product in search.results %}
   			<a class="product-box" href="{{product.url}}">
-    				<div class="image-wrapper">
+    				<div class="image-wrapper" style="background: url({{ product.featured_image | product_img_url: 'medium'}});">
               {% if product.featured_image %}
     					   <img src="{{ product.featured_image | product_img_url: 'medium'}}" alt="{{ product.description | strip_html | truncate: 75 }} click for more information" />
               {% else %}
@@ -24,7 +24,7 @@
               {% endif %}
     				</div>
   				<p title="{{ product.description | strip_html }}">{{product.title | strip_html}}</p>
-          
+
          {% if product.featured_image %}
     				{% if product.compare_at_price_min > 0 %}
     					<div class="product-box-price product-box-price-sale">{{ product.price_min | money }}</div>
@@ -34,7 +34,7 @@
          {% else %}
             <div class="product-box-price">View this page</div>
          {% endif %}
-            
+
   			</a>
   	{% endfor %}
   </section>
@@ -44,7 +44,7 @@
   		{{ paginate | default_pagination }}
   	</div>
   {% endif %}
-{% endif %}  
+{% endif %}
 {% endpaginate %}
 
 
