@@ -26,7 +26,7 @@
 
   			<hgroup>
   				<a href="/"><h1>Le Loup</h1></a>
-  				<h2><span>Beautiful Clothes for Women Childeren and Babies &mdash; </span>01323 732369</h2>
+  				<h2><span>{{ settings.tagline }}</span></h2>
   			</hgroup>
 
 
@@ -38,18 +38,6 @@
       				<p class="basket-price">{{ cart.total_price | money }}</p>
       				<p class="basket-items">({{ cart.item_count }} {{ cart.item_count | pluralize: "item", "items" }})</p>
   			</a>
-
-        <!--~~~~~~~~~~~~~~~~~~~~ Log in / Account / Signup ~~~~~~~~~~~~~~~~~~~~-->
-
-        <div class="account-links">
-  	    	{% if customer %}
-            <a href="/account">Account</a>
-            {{ "Log out" | customer_logout_link }}
-         {% else %}
-            {{ "Log in" | customer_login_link }}
-         {% endif %}
-        </div>
-
 
         <!--~~~~~~~~~~~~~~~~~~~~ Search Form ~~~~~~~~~~~~~~~~~~~~-->
 

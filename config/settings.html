@@ -1,74 +1,157 @@
+<fieldset>
+  <legend>General</legend>
 
-<h2>Homepage Settings</h2>
-<p>
-  <label for="home-message">Message</label>
-  <textarea id="home-message" name="home-message" value=""></textarea>
-</p>
-<p>
-  <label for="tagline">Header Tagline</label>
-  <input type="text" id="tagline" name="tagline" value="" width="500"/>
-</p>
-<br /><br /><br />
-
-<h2>Generic SEO</h2>
-<p>The following values will be used for your pages titles and meta descriptions:</p>
-<table>
-  <thead>
+  <h3>Header Options</h3>
+  <table>
     <tr>
-      <th>Page Type</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Notes</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Product Page</td>
-      <td><kbd>Buy {{product.title}}</kbd> from Le Loup Eastbourne</td>
-      <td><kbd>{{product.description}}</kbd></td>
-      <td>The product description will be trimmed to 150 characters. If the product is on sale, "Buy" will be replaced with "Sale:".</td>
+      <td><label for="tagline">Shop tagline</label></td>
+      <td><input type="text" id="tagline" name="tagline" /></td>
     </tr>
     <tr>
-      <td>Collection Page</td>
-      <td><kbd>{{collection.title}}</kbd> from Le Loup Eastbourne</td>
-      <td><kbd>{{ collection.description}}</kbd></td>
-      <td></td>
+      <td colspan="2"><small>This will be displayed in the header of your shop.</small></td>
+    </tr>
+  </table>
+
+
+  <h3>Pagination Options</h3>
+  <table>
+    <tr>
+      <td><label for="pagination">Number of products per page</label></td>
+      <td><input type="number" id="pagination" name="pagination" value="20"/></td>
     </tr>
     <tr>
-      <td>Normal Pages</td>
-      <td><kbd>{{page.title}}</kbd> - Le Loup Eastbourne</td>
-      <td rowspan="2" colspan="2"><textarea type="text" id="other-pages-description" name="other-pages-description" value="" /></td>
-      <td></td>
+      <td><label for="blog-pagination">Number of blog articles per page</label></td>
+      <td><input type="number" id="blog-pagination" name="blog-pagination" value="5"/></td>
     </tr>
     <tr>
-      <td>Any other pages</td>
-      <td><input type="text" id="other-pages-title" name="other-pages-title" value=""/></td>
+      <td><label for="comments-pagination">Number of comments per page</label></td>
+      <td><input type="number" id="comments-pagination" name="comments-pagination" value="50"/></td>
     </tr>
-  </tbody>
-</table>
-<br /><br />
+  </table>
 
-<p>
-  <label for="meta-keywords">Meta Keywords</label>
-  <textarea id="meta-keywords" name="meta-keywords" value=""></textarea>
-</p>
+  <h3>SEO Options</h3>
+  <table>
+    <tr>
+      <td><label for="meta-keywords">Meta Keywords</label></td>
+      <td><textarea id="meta-keywords" name="meta-keywords" value=""></textarea></td>
+    </tr>
+  </table>
+
+  <h3>Social Media Options</h3>
+  <table>
+    <tr>
+      <td><label for="facebook-admin-id">Facebook Admin ID</label></td>
+      <td><input type="text" id="facebook-admin-id" name="facebook-admin-id" /></td>
+    </tr>
+    <tr>
+      <td><label for="twitter_username">Twitter Username</label></td>
+      <td><input type="text" id="twitter_username" name="twitter_username" /></td>
+    </tr>
+  </table>
+</fieldset>
 
 
 
-<br /><br /><br />
-<h2>Opening Times</h2>
-<p>You can write whatever you want in the Opening Times (text) column and it will appear on your website unchanged.</p>
-<p>The Opening Times (shhema.org) column is used to expose your opening times to goole. They must follow a specific format:</p>
-<ul>
-  <li>Times are specified using 24:00 time. For example, 3pm is specified as <kbd>15:00</kbd>.</li>
-  <li>A time range is seperated with a dash.</li>
-  <li>For example: 9am to 5pm would be written <kbd>09:00-17:00</kbd>.</li>
-</ul>
-<p>More information is available on the <a href="http://schema.org/LocalBusiness">schema.org page</a>.</p>
-	<p><label for="opening-active">Show Opening Times?</label><input type="checkbox" name="opening-active" id="opening-active" /></p>
-<br />
 
-<table>
+<fieldset>
+  <legend>Home Page</legend>
+
+  <h3>Notices</h3>
+  <table>
+    <tr>
+      <td><label for="homepage-notice-title">Heading</label></td>
+      <td><input type="text" id="homepage-notice-title" name="homepage-notice-title" /></td>
+    </tr>
+    <tr>
+      <td><label for="homepage-notice-text">Notice Text</label></td>
+      <td><textarea type="text" id="homepage-notice-text" name="homepage-notice-text"></textarea></td>
+    </tr>
+  </table>
+
+  <h3>Featured Product</h3>
+  <table>
+    <tr>
+      <td><label for="featured-heading">Heading</label></td>
+      <td><input type="text" id="featured-heading" name="featured-heading" /></td>
+    </tr>
+    <tr>
+      <td><label for="featured-text">Text</label></td>
+      <td><textarea type="text" id="featured-text" name="featured-text"></textarea></td>
+    </tr>
+    <tr>
+      <td colspan="2"><small>For the featured image to show properly, you must add the product to the Link List "Featured Product", under the shopify navigation tab.</small></td>
+    </tr>
+  </table>
+</fieldset>
+
+
+
+<fieldset>
+  <legend>Footer</legend>
+
+  <h3>Newsletter Signup Form</h3>
+  <table>
+    <tr>
+      <td><label for="newsletter-enabled">Enable Newsletter Sign Up Form</label></td>
+      <td>
+        <input type="checkbox" id="newsletter-enabled" name="newsletter-enabled" />
+      </td>
+    </tr>
+    <tr>
+      <td><label for="newsletter-text">Heading</label></td>
+      <td><input name="newsletter-text" type="text" id="newsletter-heading" value="Newsletter" /></td>
+    </tr>
+    <tr>
+      <td><label for="newsletter-description">Description</label></td>
+      <td><input name="newsletter-description" type="text" id="newsletter-description" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="newsletter-provider">Subscription System</label></td>
+      <td>
+        <input type="radio" name="newsletter-provider" value="shopify" /> Shopify
+        <br />
+        <input type="radio" name="newsletter-provider" value="mailchimp" /> <a href="http://mailchimp.com/">MailChimp</a>
+      </td>
+    </tr>
+    <tr>
+      <td><label for="mailchimp-link">Mailchimp Form URL</label></td>
+      <td>
+        <input type="text" id="mailchimp-link" name="mailchimp-link" value="" />
+      </td>
+    </tr>
+  </table>
+
+  <h3>Accepted Payment Options</h3>
+  <table>
+    <tr>
+       <td><label for="payment-methods">Payment Methods</label></td>
+       <td>
+         <input type="checkbox" id="use-paypal" name="use-paypal" value="0" /> PayPal <br />
+         <input type="checkbox" id="use-visa" name="use-visa" value="0" /> Visa <br />
+         <input type="checkbox" id="use-mastercard" name="use-mastercard" value="0" /> Mastercard <br />
+         <input type="checkbox" id="use-maestro" name="use-maestro" value="0" /> Maestro <br />
+         <input type="checkbox" id="use-amex" name="use-amex" value="0" /> American Express <br />
+         <input type="checkbox" id="use-google" name="use-google" value="0" /> Google Payments <br />
+         <input type="checkbox" id="use-solo" name="use-solo" value="0" /> Solo <br />
+         <input type="checkbox" id="use-cash" name="use-cash" value="0" /> Cash <br />
+       </td>
+     </tr>
+  </table>
+</fieldset>
+
+
+<fieldset>
+  <legend>Opening Times</legend>
+
+  <table>
+    <tr>
+      <td><label for="opening-active">Show Opening Times?</label></td>
+      <td><input type="checkbox" name="opening-active" id="opening-active" /></td>
+    </tr>
+  </table>
+
+  <h3>Opening Times Table</h3>
+  <table>
   <thead>
     <tr>
       <th>Day of the Week</th>
@@ -76,209 +159,268 @@
       <th>Opening Times (schema.org)</th>
     </tr>
   </thead>
-	<tbody>
-		<tr>
-			<td><label for="opening-mon">Monday</label></td>
-			<td><input type="text" id="opening-mon" name="opening-mon"/></td>
-			<td><input type="text" id="meta-opening-mon" name="meta-opening-mon"/></td>
-		</tr>
-		<tr>
-			<td><label for="opening-tue">Tuesday</label></td>
-			<td><input type="text" id="opening-tue" name="opening-tue"/></td>
-			<td><input type="text" id="meta-opening-tue" name="meta-opening-tue"/></td>
-		</tr>
-		<tr>
-			<td><label for="opening-wed">Wednesday</label></td>
-			<td><input type="text" id="opening-wed" name="opening-wed"/></td>
-			<td><input type="text" id="meta-opening-wed" name="meta-opening-wed"/></td>
-		</tr>
-		<tr>
-			<td><label for="opening-thu">Thursday</label></td>
-			<td><input type="text" id="opening-thu" name="opening-thu"/></td>
-			<td><input type="text" id="meta-opening-thu" name="meta-opening-thu"/></td>
-		</tr>
-		<tr>
-			<td><label for="opening-fri">Friday</label></td>
-			<td><input type="text" id="opening-fri" name="opening-fri"/></td>
-			<td><input type="text" id="meta-opening-fri" name="meta-opening-fri"/></td>
-		</tr>
-		<tr>
-			<td><label for="opening-sat"><strong>Saturday</strong></label></td>
-			<td><input type="text" id="opening-sat" name="opening-sat"/></td>
-			<td><input type="text" id="meta-opening-sat" name="meta-opening-sat"/></td>
-		</tr>
-		<tr>
-			<td><label for="opening-sun"><strong>Sunday</strong></label></td>
-			<td><input type="text" id="opening-sun" name="opening-sun"/></td>
-			<td><input type="text" id="meta-opening-sun" name="meta-opening-sun"/></td>
-		</tr>
-	</tbody>
+  <tbody>
+    <tr>
+      <td><label for="opening-mon">Monday</label></td>
+      <td><input type="text" id="opening-mon" name="opening-mon"/></td>
+      <td><input type="text" id="meta-opening-mon" name="meta-opening-mon"/></td>
+    </tr>
+    <tr>
+      <td><label for="opening-tue">Tuesday</label></td>
+      <td><input type="text" id="opening-tue" name="opening-tue"/></td>
+      <td><input type="text" id="meta-opening-tue" name="meta-opening-tue"/></td>
+    </tr>
+    <tr>
+      <td><label for="opening-wed">Wednesday</label></td>
+      <td><input type="text" id="opening-wed" name="opening-wed"/></td>
+      <td><input type="text" id="meta-opening-wed" name="meta-opening-wed"/></td>
+    </tr>
+    <tr>
+      <td><label for="opening-thu">Thursday</label></td>
+      <td><input type="text" id="opening-thu" name="opening-thu"/></td>
+      <td><input type="text" id="meta-opening-thu" name="meta-opening-thu"/></td>
+    </tr>
+    <tr>
+      <td><label for="opening-fri">Friday</label></td>
+      <td><input type="text" id="opening-fri" name="opening-fri"/></td>
+      <td><input type="text" id="meta-opening-fri" name="meta-opening-fri"/></td>
+    </tr>
+    <tr>
+      <td><label for="opening-sat"><strong>Saturday</strong></label></td>
+      <td><input type="text" id="opening-sat" name="opening-sat"/></td>
+      <td><input type="text" id="meta-opening-sat" name="meta-opening-sat"/></td>
+    </tr>
+    <tr>
+      <td><label for="opening-sun"><strong>Sunday</strong></label></td>
+      <td><input type="text" id="opening-sun" name="opening-sun"/></td>
+      <td><input type="text" id="meta-opening-sun" name="meta-opening-sun"/></td>
+    </tr>
+  </tbody>
+    <tr>
+      <td colspan="3"><small>
+        You can write whatever you want in the Opening Times (text) column and it will appear on your website unchanged. The Opening Times (shhema.org) column is used to expose your opening times to goole. They must follow a specific format:
+        <ul>
+          <li>Times are specified using 24:00 time. For example, 3pm is specified as <kbd>15:00</kbd>.</li>
+          <li>A time range is seperated with a dash.</li>
+          <li>For example: 9am to 5pm would be written <kbd>09:00-17:00</kbd>.</li>
+        </ul>
+        More information is available on the <a href="http://schema.org/LocalBusiness">schema.org page</a>.
+      </small></td>
+    </tr>
 </table>
-<br />
-
-
-<h2>Homepage Slider</h2>
-<fieldset>
-  <legend>Slide 1</legend>
-
-  <label for="slide-1-active">Active</label>
-  <input type="checkbox" id="slide-1-active" name="slide-1-active"/><br />
-
-  <label for="slide-1-heading">Heading</label><br />
-  <input type="text" id="slide-1-heading" name="slide-1-heading" class="text" value="" /><br />
-
-  <label for="slide-1-text">Text</label><br />
-  <textarea name="slide-1-text" cols="60" rows="5" id="slide-1-text" value="" /><br />
-
-  <label for="slide-1-text">URL (Link address)</label><br />
-  <input type="text" name="slide-1-url" cols="60" rows="5" id="slide-1-url" value=""/><br />
-
-  <label for="slide-1-text">Image (should be 1000 x 340 pixels)</label><br />
-  <input type="file" id="slide-1-image" name="slide-1-image.jpg"  data-max-width="1000" />
-</fieldset>
-
-<fieldset>
-  <legend>Slide 2</legend>
-
-  <label for="slide-2-active">Active</label>
-  <input type="checkbox" id="slide-2-active" name="slide-2-active"/><br />
-
-  <label for="slide-2-heading">Heading</label><br />
-  <input type="text" id="slide-2-heading" name="slide-2-heading" class="text" value="" /><br />
-
-  <label for="slide-2-text">Text</label><br />
-  <textarea name="slide-2-text" cols="60" rows="5" id="slide-2-text" value="" /><br />
-
-  <label for="slide-2-text">URL (Link address)</label><br />
-  <input type="text" name="slide-2-url" cols="60" rows="5" id="slide-2-url" value=""/><br />
-
-  <label for="slide-2-text">Image (should be 1000 x 340 pixels)</label><br />
-  <input type="file" id="slide-2-image" name="slide-2-image.jpg"  data-max-width="1000" />
-
-</fieldset>
-
-<fieldset>
-  <legend>Slide 3</legend>
-
-  <label for="slide-3-active">Active</label>
-  <input type="checkbox" id="slide-3-active" name="slide-3-active"/><br />
-
-  <label for="slide-3-heading">Heading</label><br />
-  <input type="text" id="slide-3-heading" name="slide-3-heading" class="text" value="" /><br />
-
-  <label for="slide-3-text">Text</label><br />
-  <textarea name="slide-3-text" cols="60" rows="5" id="slide-3-text" value="" /><br />
-
-  <label for="slide-3-text">URL (Link address)</label><br />
-  <input type="text" name="slide-3-url" cols="60" rows="5" id="slide-3-url" value="" /><br />
-
-  <label for="slide-3-text">Image (should be 1000 x 340 pixels)</label><br />
-  <input type="file" id="slide-3-image" name="slide-3-image.jpg"  data-max-width="1000" />
-</fieldset>
-
-<fieldset>
-  <legend>Slide 4</legend>
-
-  <label for="slide-4-active">Active</label>
-  <input type="checkbox" id="slide-4-active" name="slide-4-active"/><br />
-
-  <label for="slide-4-heading">Heading</label><br />
-  <input type="text" id="slide-4-heading" name="slide-4-heading" class="text" value="" /><br />
-
-  <label for="slide-4-text">Text</label><br />
-  <textarea name="slide-4-text" cols="60" rows="5" id="slide-4-text" value="" /><br />
-
-  <label for="slide-4-text">URL (Link address)</label><br />
-  <input type="text" name="slide-4-url" cols="60" rows="5" id="slide-4-url" value="" /><br />
-
-  <label for="slide-4-text">Image (should be 1000 x 340 pixels)</label><br />
-  <input type="file" id="slide-4-image" name="slide-4-image.jpg"  data-max-width="1000" />
-</fieldset>
-
-<fieldset>
-  <legend>Slide 5</legend>
-
-  <label for="slide-5-active">Active</label>
-  <input type="checkbox" id="slide-5-active" name="slide-5-active"/><br />
-
-  <label for="slide-5-heading">Heading</label><br />
-  <input type="text" id="slide-5-heading" name="slide-5-heading" class="text" value="" /><br />
-
-  <label for="slide-5-text">Text</label><br />
-  <textarea name="slide-5-text" cols="60" rows="5" id="slide-5-text" value="" /><br />
-
-  <label for="slide-5-text">URL (Link address)</label><br />
-  <input type="text" name="slide-5-url" cols="60" rows="5" id="slide-5-url" value="" /><br />
-
-  <label for="slide-5-text">Image (should be 1000 x 340 pixels)</label><br />
-  <input type="file" id="slide-5-image" name="slide-5-image.jpg"  data-max-width="1000" />
-</fieldset>
-
-<fieldset>
-  <legend>Slide 6</legend>
-
-  <label for="slide-6-active">Active</label>
-  <input type="checkbox" id="slide-6-active" name="slide-6-active"/><br />
-
-  <label for="slide-6-heading">Heading</label><br />
-  <input type="text" id="slide-6-heading" name="slide-6-heading" class="text" value="" /><br />
-
-  <label for="slide-6-text">Text</label><br />
-  <textarea name="slide-6-text" cols="60" rows="5" id="slide-6-text" value="" /><br />
-
-  <label for="slide-6-text">URL (Link address)</label><br />
-  <input type="text" name="slide-6-url" cols="60" rows="5" id="slide-6-url" value="" /><br />
-
-  <label for="slide-6-text">Image (should be 1000 x 340 pixels)</label><br />
-  <input type="file" id="slide-6-image" name="slide-6-image.jpg"  data-max-width="1000" />
-</fieldset>
-
-<fieldset>
-  <legend>Slide 7</legend>
-
-  <label for="slide-7-active">Active</label>
-  <input type="checkbox" id="slide-7-active" name="slide-7-active"/><br />
-
-  <label for="slide-7-heading">Heading</label><br />
-  <input type="text" id="slide-7-heading" name="slide-7-heading" class="text" value="" /><br />
-
-  <label for="slide-7-text">Text</label><br />
-  <textarea name="slide-7-text" cols="60" rows="5" id="slide-7-text" value="" /><br />
-
-  <label for="slide-7-text">URL (Link address)</label><br />
-  <input type="text" name="slide-7-url" cols="60" rows="5" id="slide-7-url" value="" /><br />
-
-  <label for="slide-7-text">Image (should be 1000 x 340 pixels)</label><br />
-  <input type="file" id="slide-7-image" name="slide-7-image.jpg"  data-max-width="1000" />
-</fieldset>
-
-<fieldset>
-  <legend>Slide 8</legend>
-
-  <label for="slide-8-active">Active</label>
-  <input type="checkbox" id="slide-8-active" name="slide-8-active"/><br />
-
-  <label for="slide-8-heading">Heading</label><br />
-  <input type="text" id="slide-8-heading" name="slide-8-heading" class="text" value="" /><br />
-
-  <label for="slide-8-text">Text</label><br />
-  <textarea name="slide-8-text" cols="60" rows="5" id="slide-8-text" value="" /><br />
-
-  <label for="slide-8-text">URL (Link address)</label><br />
-  <input type="text" name="slide-8-url" cols="60" rows="5" id="slide-8-url" value="" /><br />
-
-  <label for="slide-8-text">Image (should be 1000 x 340 pixels)</label><br />
-  <input type="file" id="slide-8-image" name="slide-8-image.jpg"  data-max-width="1000" />
 </fieldset>
 
 
-<h2>Featured Product (Homepage)</h2>
-<p>To include a featured product on the homepage, define a heading and some text here</p>
-<label for="featured-heading">Heading</label><br />
-<input type="text" id="featured-heading" name="featured-heading"/><br />
+<fieldset>
+  <legend>Homepage Slider</legend>
 
-<label for="featured-text">Text</label><br />
-<textarea name="featured-text" cols="60" rows="5" id="featured-text" value=""></textarea><br />
+  <h3>Slide 1</h3>
+  <table>
+    <tr>
+      <td><label for="slide-1-active">Active</label></td>
+      <td><input type="checkbox" id="slide-1-active" name="slide-1-active"/></td>
+    </tr>
+    <tr>
+      <td><label for="slide-1-heading">Heading</label></td>
+      <td><input type="text" id="slide-1-heading" name="slide-1-heading" class="text" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="slide-1-text">Text</label></td>
+      <td><textarea name="slide-1-text" cols="60" rows="5" id="slide-1-text" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="slide-1-text">URL (Link address)</label></td>
+      <td><input type="text" name="slide-1-url" cols="60" rows="5" id="slide-1-url" value=""/></td>
+    </tr>
+    <tr>
+      <td><label for="slide-1-text">Image (should be 1500 x 340 pixels)</label></td>
+      <td><input type="file" id="slide-1-image" name="slide-1-image.jpg"  data-max-width="1500" /></td>
+    </tr>
+  </table>
 
-<p>For the featured image to show properly, you must add the product to the Link List "Featured Product", under the shopify navigation tab.</p>
+    <h3>Slide 2</h3>
+  <table>
+    <tr>
+      <td><label for="slide-2-active">Active</label></td>
+      <td><input type="checkbox" id="slide-2-active" name="slide-2-active"/></td>
+    </tr>
+    <tr>
+      <td><label for="slide-2-heading">Heading</label></td>
+      <td><input type="text" id="slide-2-heading" name="slide-2-heading" class="text" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="slide-2-text">Text</label></td>
+      <td><textarea name="slide-2-text" cols="60" rows="5" id="slide-2-text" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="slide-2-text">URL (Link address)</label></td>
+      <td><input type="text" name="slide-2-url" cols="60" rows="5" id="slide-2-url" value=""/></td>
+    </tr>
+    <tr>
+      <td><label for="slide-2-text">Image (should be 1500 x 340 pixels)</label></td>
+      <td><input type="file" id="slide-2-image" name="slide-2-image.jpg"  data-max-width="1500" /></td>
+    </tr>
+  </table>
 
+    <h3>Slide 3</h3>
+  <table>
+    <tr>
+      <td><label for="slide-3-active">Active</label></td>
+      <td><input type="checkbox" id="slide-3-active" name="slide-3-active"/></td>
+    </tr>
+    <tr>
+      <td><label for="slide-3-heading">Heading</label></td>
+      <td><input type="text" id="slide-3-heading" name="slide-3-heading" class="text" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="slide-3-text">Text</label></td>
+      <td><textarea name="slide-3-text" cols="60" rows="5" id="slide-3-text" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="slide-3-text">URL (Link address)</label></td>
+      <td><input type="text" name="slide-3-url" cols="60" rows="5" id="slide-3-url" value=""/></td>
+    </tr>
+    <tr>
+      <td><label for="slide-3-text">Image (should be 1500 x 340 pixels)</label></td>
+      <td><input type="file" id="slide-3-image" name="slide-3-image.jpg"  data-max-width="1500" /></td>
+    </tr>
+  </table>
+
+    <h3>Slide 4</h3>
+  <table>
+    <tr>
+      <td><label for="slide-4-active">Active</label></td>
+      <td><input type="checkbox" id="slide-4-active" name="slide-4-active"/></td>
+    </tr>
+    <tr>
+      <td><label for="slide-4-heading">Heading</label></td>
+      <td><input type="text" id="slide-4-heading" name="slide-4-heading" class="text" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="slide-4-text">Text</label></td>
+      <td><textarea name="slide-4-text" cols="60" rows="5" id="slide-4-text" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="slide-4-text">URL (Link address)</label></td>
+      <td><input type="text" name="slide-4-url" cols="60" rows="5" id="slide-4-url" value=""/></td>
+    </tr>
+    <tr>
+      <td><label for="slide-4-text">Image (should be 1500 x 340 pixels)</label></td>
+      <td><input type="file" id="slide-4-image" name="slide-4-image.jpg"  data-max-width="1500" /></td>
+    </tr>
+  </table>
+
+    <h3>Slide 5</h3>
+  <table>
+    <tr>
+      <td><label for="slide-5-active">Active</label></td>
+      <td><input type="checkbox" id="slide-5-active" name="slide-5-active"/></td>
+    </tr>
+    <tr>
+      <td><label for="slide-5-heading">Heading</label></td>
+      <td><input type="text" id="slide-5-heading" name="slide-5-heading" class="text" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="slide-5-text">Text</label></td>
+      <td><textarea name="slide-5-text" cols="60" rows="5" id="slide-5-text" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="slide-5-text">URL (Link address)</label></td>
+      <td><input type="text" name="slide-5-url" cols="60" rows="5" id="slide-5-url" value=""/></td>
+    </tr>
+    <tr>
+      <td><label for="slide-5-text">Image (should be 1500 x 340 pixels)</label></td>
+      <td><input type="file" id="slide-5-image" name="slide-5-image.jpg"  data-max-width="1500" /></td>
+    </tr>
+  </table>
+
+    <h3>Slide 6</h3>
+  <table>
+    <tr>
+      <td><label for="slide-6-active">Active</label></td>
+      <td><input type="checkbox" id="slide-6-active" name="slide-6-active"/></td>
+    </tr>
+    <tr>
+      <td><label for="slide-6-heading">Heading</label></td>
+      <td><input type="text" id="slide-6-heading" name="slide-6-heading" class="text" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="slide-6-text">Text</label></td>
+      <td><textarea name="slide-6-text" cols="60" rows="5" id="slide-6-text" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="slide-6-text">URL (Link address)</label></td>
+      <td><input type="text" name="slide-6-url" cols="60" rows="5" id="slide-6-url" value=""/></td>
+    </tr>
+    <tr>
+      <td><label for="slide-6-text">Image (should be 1500 x 340 pixels)</label></td>
+      <td><input type="file" id="slide-6-image" name="slide-6-image.jpg"  data-max-width="1500" /></td>
+    </tr>
+  </table>
+
+    <h3>Slide 7</h3>
+  <table>
+    <tr>
+      <td><label for="slide-7-active">Active</label></td>
+      <td><input type="checkbox" id="slide-7-active" name="slide-7-active"/></td>
+    </tr>
+    <tr>
+      <td><label for="slide-7-heading">Heading</label></td>
+      <td><input type="text" id="slide-7-heading" name="slide-7-heading" class="text" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="slide-7-text">Text</label></td>
+      <td><textarea name="slide-7-text" cols="60" rows="5" id="slide-7-text" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="slide-7-text">URL (Link address)</label></td>
+      <td><input type="text" name="slide-7-url" cols="60" rows="5" id="slide-7-url" value=""/></td>
+    </tr>
+    <tr>
+      <td><label for="slide-7-text">Image (should be 1500 x 340 pixels)</label></td>
+      <td><input type="file" id="slide-7-image" name="slide-7-image.jpg"  data-max-width="1500" /></td>
+    </tr>
+  </table>
+
+    <h3>Slide 8</h3>
+  <table>
+    <tr>
+      <td><label for="slide-8-active">Active</label></td>
+      <td><input type="checkbox" id="slide-8-active" name="slide-8-active"/></td>
+    </tr>
+    <tr>
+      <td><label for="slide-8-heading">Heading</label></td>
+      <td><input type="text" id="slide-8-heading" name="slide-8-heading" class="text" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="slide-8-text">Text</label></td>
+      <td><textarea name="slide-8-text" cols="60" rows="5" id="slide-8-text" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="slide-8-text">URL (Link address)</label></td>
+      <td><input type="text" name="slide-8-url" cols="60" rows="5" id="slide-8-url" value=""/></td>
+    </tr>
+    <tr>
+      <td><label for="slide-8-text">Image (should be 1500 x 340 pixels)</label></td>
+      <td><input type="file" id="slide-8-image" name="slide-8-image.jpg"  data-max-width="1500" /></td>
+    </tr>
+  </table>
+</fieldset>
+
+
+
+
+<fieldset>
+  <legend>EXAMPLE SECTION TTLE</legend>
+
+  <h3>Subsection Title</h3>
+  <table>
+    <tr>
+      <td><label for="item">Label</label></td>
+      <td><input type="text" id="item" name="item" /></td>
+    </tr>
+    <tr>
+      <td colspan="2"><small>Notes go here.</small></td>
+    </tr>
+  </table>
+</fieldset>

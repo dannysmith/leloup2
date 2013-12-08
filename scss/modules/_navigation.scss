@@ -2,8 +2,11 @@
 // Module: navigation.scss
 // ========================================================================== */
 
-$nav-color: #E25A20;
-$sub-nav-color: darken($nav-color, 5%);
+$nav-color: #7F8987;
+$hover-color: #D8E5B8;
+$hover-text-color: darken(#988475, 5%);
+$sub-nav-color: $hover-color;
+$sub-nav-text-color: $hover-text-color;
 
 .navigation {
 	position: relative;
@@ -25,7 +28,8 @@ $sub-nav-color: darken($nav-color, 5%);
 		border-top: 1px solid darken($nav-color, 5%);
 
 		&:hover {
-			background: darken($nav-color, 10%);
+			background: darken($hover-color, 5%);
+			color: $hover-text-color;
 		}
 	}
 
@@ -33,6 +37,7 @@ $sub-nav-color: darken($nav-color, 5%);
 	li li > a {
 		padding: 0 em(10) 0 em(30);
 		background: $sub-nav-color;
+		color: $sub-nav-text-color;
 	}
 
 	// Small Screen menu
@@ -41,7 +46,9 @@ $sub-nav-color: darken($nav-color, 5%);
 
 	// Now for larger viewports...
 
-	@media screen and (min-width: 1000px) {
+	@media screen and (min-width: 1050px) {
+
+		z-index: 5;
 
 		a.touch-navigation {display: none;}
 
@@ -72,6 +79,8 @@ $sub-nav-color: darken($nav-color, 5%);
 
 				&:hover > ul {
 					display: block;
+
+					li:last-child {border-bottom: 3px solid #EC93BA;}
 				}
 			}
 		}
@@ -80,11 +89,28 @@ $sub-nav-color: darken($nav-color, 5%);
 		li li {
 			position: absolute;
 			float: left;
-			width: em(300);
-			z-index: 5;
+			width: em(200);
+			z-index: 99;
 			top: 0;
 			left: 0;
 			a {padding: 0 em(5);}
+			background: $sub-nav-color;
+			color: $sub-nav-text-color;
+
 		}
+
+		// The account link
+		li:last-child li {
+			left: auto;
+			right: 0;
+			text-align: right;
+			width: em(100);
+		}
+
+		// // Add colour to the four main links
+		// > ul > li:nth-child(1) > a {border-bottom: 2px solid darken(#D8E5B8, 10%);} // #A6AE92;}
+		// > ul > li:nth-child(2) > a {border-bottom: 2px solid darken(#D8E5B8, 10%);} // #3E555F;}
+		// > ul > li:nth-child(3) > a {border-bottom: 2px solid darken(#D8E5B8, 10%);} // #E2EECC;}
+		// > ul > li:nth-child(4) > a {border-bottom: 2px solid darken(#D8E5B8, 10%);} // #67575B;}
 	}
 }

@@ -22,6 +22,8 @@ $(document).ready(function(){
 	/*** Make Slider on Homepage Work ***/
 	$('.flexslider').flexslider({
     animation: "slide",
+    slideshowSpeed: 10000,
+    initDelay: 5000,
     start: function(slider){
       $('body').removeClass('loading');
     }

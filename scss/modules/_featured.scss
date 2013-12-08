@@ -1,0 +1,72 @@
+// ==========================================================================
+// Module: featured.scss
+// ========================================================================== */
+
+.featured {
+	position: relative;
+	width: 100%;
+	padding: 5px;
+	margin: 0;
+
+	background: #fff;
+	-moz-box-shadow: 		0px 0px 5px #888;
+	-webkit-box-shadow:	0px 0px 5px #888;
+	box-shadow:					0px 0px 5px #888;
+
+
+	@media screen and (min-width: 800px) {
+		float: left;
+		width: 39.2%;
+		margin: 0 1.2% 1em 2%;
+	}
+
+	.image-wrapper {
+		position: relative;
+		float: left;
+		width: 66.6%;
+		border: 1px solid rgba(0,0,0,0.3);
+		border-radius: 2px;
+		overflow: hidden;
+		box-shadow: inset 0 0 40px 2px rgba(0, 100, 100, 0.15);
+
+		min-height: lines(10);
+		background-position: center;
+  	background-size: cover;
+
+		img {display: none;}
+	}
+
+	.featured-content {
+		float: left;
+		width: 31.3%;
+		margin-left: 2%;
+
+		text-align: center;
+
+		p {
+			font-size: 0.8em;
+			line-height: 1.2;
+			background: rgba(255,255,255,0.5);
+			text-overflow: ellipsis;
+			overflow: hidden;
+			margin-bottom: 0;
+		}
+
+		h1 {
+		  font-size: 0.8em;
+		  line-height: 1.4;
+		  margin-bottom: 1em;
+		}
+
+	}
+}
+
+.featured-content:after {
+    content: "";
+    position: absolute;
+    z-index: 10;
+    bottom: 4px;
+    left :3px;
+    right: 3px;
+    border-bottom: 1px dashed #FB91A5;
+}
