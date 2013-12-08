@@ -1,0 +1,57 @@
+/******************************************************************************
+		ie8.css
+		v1.0
+		2012-10-11
+
+		Manyhats Design, UK
+		Written by Danny Smith (danny@manyhatsdesign.com)
+
+		This stylesheet is offered to only IE 8.
+		It contains fixes for Internet Explorer 8.
+*******************************************************************************/
+#wrapper {
+  background: #fff; }
+
+#header-main {
+  border-bottom: 1px solid #c6d2d7; }
+
+.product-box, .product-image-small, .product-image-zoom, .product-box .image-wrapper, .blog-post-row-box, .blog-sidebar-box, .gemma, .hannah {
+  border: 1px solid #bbb; }
+
+.product-box:after, .product-box:before {
+  display: none; }
+
+.blog-sidebar-box:before, .blog-sidebar-box:after, .gemma:before, .gemma:after, .hannah:before, .hannah:after, .gemma div:before, .gemma div:after, .hannah div:before, .hannah div:after {
+  display: none; }
+
+.social li, .footer-bar nav li {
+  border: 1px solid #999; }
+
+.pictureframe {
+  border: 3px solid #BB8341; }
+
+.blog-post-content img {
+  padding: 0 20px; }
+
+.product-box:hover, .blog-post-row-box:hover, .blog-sidebar-box:hover {
+  background: #E7ECEE; }
+
+.category-header h1 {
+  background: #7C8786;
+  width: 20%;
+  padding-right: 0; }
+
+.product-image-main {
+  border-width: 5px; }
+
+.footer-bar .gifts, .footer-bar .baby, .footer-bar .women, .footer-bar .little {
+  background-image: none;
+  background-color: #7C8786;
+  width: 20%;
+  height: 2em; }
+
+.social li:after {
+  line-height: 0.7em; }
+
+.home-callout {
+  background: #E5E5E5; }

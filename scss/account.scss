@@ -1,0 +1,179 @@
+#returning-customers,
+#recover-password {
+  float: left;
+  width: 47.8%;
+  margin-left: 1.2%;
+}
+
+#create-customer {
+  float: left;
+  width: 47.8%;
+  margin-left: 2%;
+  margin-bottom: 2rem;
+}
+
+input[type=email],
+input[type=text],
+input[type=password],
+select {
+  width: 100%;
+}
+#returning-customers input,
+#recover-password input,
+#create-customer input {
+  max-width: 332px; /* 4 columns */
+}
+
+
+
+.note {
+  font-family: "facitweb";
+}
+
+#forgot_password {
+  margin: 5px 0 10px;
+}
+
+@media only screen and (max-width: 500px) {
+  #returning-customers,
+  #recover-password,
+  #create-customer {
+    float: none;
+    width: 97.6%;
+    margin-left: 1.2%;
+  }
+
+#returning-customers input,
+#recover-password input,
+#create-customer input {
+    max-width: 100%;
+  }
+}
+
+.small {
+  font-size: .8em;
+  color: #777;
+}
+
+.errors {
+  border: 1px solid rgba(220,87,65,.9);
+  background: rgba(220,87,65,.2);
+  padding: .3em;
+  margin-bottom: 1em;
+}
+
+.errors li,
+.errors ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+#admin_header {
+  width: 97.6%;
+  margin-left: 1.2%;
+}
+
+.edit_address {
+  position: relative;
+  width: 47.8%;
+  margin-left: 1.2%;
+  margin-top: 5px;
+}
+
+.edit_address table {
+  width: 100%;
+}
+
+#action_bottom {
+  display: inline-block;
+  text-align: right;
+}
+
+@media only screen and (max-width: 56em) {
+  .edit_address{
+    width: 97.6%;
+    margin-left: 1.2%;
+  }
+}
+
+.address_table {
+  border-top: 1px solid #ccc;
+  width: 97.6%;
+  margin-left: 1.2%;
+  margin-top: 1em;
+}
+
+.address_table p {
+  line-height: 1.1;
+}
+
+#template {
+  width: 81%;
+  margin-left: 9.5%;
+}
+
+#customer_orders,
+#order_details,
+.account-notice {
+  width: 81%;
+  margin-left: 9.5%;
+}
+
+@media only screen and (max-width: 45em) {
+  #customer_orders,
+  #order_details,
+  .account-notice {
+    width: 97.6%;
+    margin-left: 1.2%;
+  }
+}
+
+.account-notice {
+  position: relative;
+  text-align: center;
+  height: 3em;
+  line-height: 3em;
+}
+.table {
+  width: 100%;
+	background: #fff;
+	z-index: 1;
+	border-collapse: separate;
+
+	border-radius: 2px;
+	border: 1px solid #ccc;
+}
+
+.table td,
+.table th {
+  padding:.4em;
+}
+
+.table thead {
+	text-align: left;
+  background: #C7DBE5;
+}
+
+.table tbody tr:nth-child(even) {
+	background: rgba(220,235,191,0.3);
+}
+
+.table tfoot {
+  background: rgba(0,0,0,0.05);
+}
+
+.table tfoot td {
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.line-item-status {
+  font-size: .8em;
+  color: #999;
+  font-style: italic;
+}
+
+#order_shipping {
+  text-align: center;
+}

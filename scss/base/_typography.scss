@@ -1,0 +1,88 @@
+// ==========================================================================
+// Basic Typography and baseline grid
+// ========================================================================== */
+
+// Basic values in Pixels
+$base: 16;
+$line-height: 26;
+
+$base-rem: $base / 10;
+$line-height-rem: $line-height / 10;
+
+
+
+
+
+// Convert lines into rems or pixels
+// Usage:
+//   height: lines(2); #=> height: 5.2rem;
+//   height: lines-px(2); #=> height: 52px;
+
+@function lines($lines)    {@return $lines * $line-height-rem * 1rem;}
+@function lines-px($lines) {@return $lines * $line-height * 1px;}
+
+
+
+
+
+// Set the font-size and line-height
+// Usage:
+//    @mixin type-size(36, 2)
+
+@mixin type-size($pixels, $line-height-in-lines) {
+	font-size: $pixels * 1px;
+	font-size: $pixels / 10 * 1rem;
+
+	line-height: lines-px($line-height-in-lines);
+	line-height: lines($line-height-in-lines);
+}
+
+
+
+
+
+//
+// Set up Actual Typography
+//
+
+html {
+	font-size: 62.5%; // (16 being the default font size for most browsers - I drop it down to 10) */
+  line-height: $line-height-rem * 1em; // (26px line-height) */
+}
+
+body {
+	// Body copy should have about 66 characters per line. /*
+	// Use http://www.pearsonified.com/typography/ to calculate sizes */
+	font-size: $base-rem * 1em; /* 16px */
+	line-height: $line-height-rem * 1em; // (26px line-height) */
+}
+
+h1, .h1 {
+	text-rendering: optimizeLegibility;
+	@include type-size(36, 2);
+	font-weight: normal;
+	margin: 0 0 lines-px(2) 0;
+	margin-bottom: lines(2);
+}
+
+h2, .h2 {
+	text-rendering: optimizeLegibility;
+	@include type-size(24, 2);
+	font-weight: normal;
+	margin: 0 0 lines-px(1) 0;
+	margin-bottom: lines(1);
+}
+
+h3, .h3 {
+	text-rendering: optimizeLegibility;
+	@include type-size(21, 1);
+	font-weight: normal;
+	margin: 0 0 lines-px(1) 0;
+	margin-bottom: lines(1);
+}
+
+p, .p, ul, ol {
+	@include type-size(16, 1);
+	margin: 0 0 lines-px(1) 0;
+	margin-bottom: lines(1);
+}

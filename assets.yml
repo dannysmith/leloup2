@@ -1,0 +1,26 @@
+package_assets:   on
+embed_assets:     off
+compress_assets:  on
+gzip_assets:      off
+javascript_compressor: uglifier
+
+javascripts:
+  main.min:
+    - js/jquery.easing.1.3.min.js
+    - js/jquery.flexslider.min.js
+    - js/plugins.js
+    - js/main.js
+    - js/shame.js
+
+stylesheets:
+  main.min:
+    - compiled-css/main.css
+  # accordian.min:
+  #   - compiled-css/accordian.css
+  # account:
+  #   - compiled-css/account.css
+  # ie8.min:
+  #   - compiled-css/ie8.css
+
+
+# Uncomment the above when you need to work on those files. This comment just stops jammit compiling the assets every time I change any file.

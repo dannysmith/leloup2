@@ -1,0 +1,36 @@
+// ==========================================================================
+// Variables used in the Theme
+// ========================================================================== */
+
+// This file should eventually use liquid variables. I may have to override the default validation settings in SASS.
+
+$link-color: blue;
+$link-hover-color: blue;
+$featured-text-color: red;
+$button-background-color: gery;
+$button-background-hover-color: red;
+$button-text-color: white;
+$cta-background-color: orange;
+$cta-background-hover-color: tomato;
+$cta-text-color: blue;
+$sale-price-color: red;
+$sale-banner-color: black;
+
+$panel-background-color: #ccc;
+$panel-text-color: black;
+$border-color: teal;
+
+$background-color: white;
+$header-background-color: grey;
+
+// Neat Grid
+
+$column: golden-ratio(1em, 3); // Column width
+$gutter: golden-ratio(1em, 1); // Gutter between each two columns
+$grid-columns: 12; // Total number of columns in the grid
+$max-width: em(1500); // Max-width of the outer container
+$border-box-sizing: true; // Makes all elements have a border-box layout
+
+$visual-grid: true;
+$visual-grid-color: #EEE;
+$visual-grid-opacity: 0.4;

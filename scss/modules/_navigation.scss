@@ -1,0 +1,90 @@
+// ==========================================================================
+// Module: navigation.scss
+// ========================================================================== */
+
+$nav-color: #E25A20;
+$sub-nav-color: darken($nav-color, 5%);
+
+.navigation {
+	position: relative;
+
+	li, ul {padding: 0; margin: 0; list-style: none; position: relative;}
+
+	// All anchors within li's plus the .touch-navigation one
+	ul > li > a,
+	a.touch-navigation {
+		display: block;
+		width: 100%;
+		padding: 0 em(10);
+		line-height: lines(1.5);
+
+		text-decoration: none;
+		background: $nav-color;
+		color: #eee;
+		font-weight: light;
+		border-top: 1px solid darken($nav-color, 5%);
+
+		&:hover {
+			background: darken($nav-color, 10%);
+		}
+	}
+
+	// Sub li's only
+	li li > a {
+		padding: 0 em(10) 0 em(30);
+		background: $sub-nav-color;
+	}
+
+	// Small Screen menu
+	> ul {display: none;}
+
+
+	// Now for larger viewports...
+
+	@media screen and (min-width: 1000px) {
+
+		a.touch-navigation {display: none;}
+
+		> ul {
+			display: block;
+			text-align: justify;
+			background: $nav-color;
+			max-height: lines(1.5);
+
+			&:after {
+				content: ' ';
+				display: inline-block;
+    		width: 100%;
+			}
+
+			> li {
+				display: inline-block;
+				position: relative;
+				border: none;
+				z-index: 0;
+				> a {
+					text-align: center;
+					border-top: none;
+				}
+
+				// Display the dropdowns on hover
+				> ul {display: none;}
+
+				&:hover > ul {
+					display: block;
+				}
+			}
+		}
+
+		// Sub li's only
+		li li {
+			position: absolute;
+			float: left;
+			width: em(300);
+			z-index: 5;
+			top: 0;
+			left: 0;
+			a {padding: 0 em(5);}
+		}
+	}
+}

@@ -1,15 +1,19 @@
+<!--~~~~~~~~~~~~~~~~~~~~ Navigation Snippet ~~~~~~~~~~~~~~~~~~~~-->
+
 <nav class="navigation" role="navigation">
+	<a href="#" class="touch-navigation"><i class="fa fa-bars"></i> Navigation</a>
 	<ul>
 		{% for link in linklists.main-menu.links %}
 
     {% capture child_list_handle %}{{ link.title | handle }}{% endcapture %}
 
-		<li {% if linklists[child_list_handle].title == "" %} class="no-children"{%else%} class="has-children"{% endif %}>
-			<a href="{{ link.url }}"><span>{{ link.title }}</span></a>
+		<li class="{% if linklists[child_list_handle].title == "" %}no-children{% endif %}{% if link.active %} active{% endif %}">
+			{{ link.title | link_to: link.url }}
+
       {% if link.title == "By Brand" %}
   	    <ul class="main-nav-child">
           {% for l in linklists.by-brand.links %}
-             <li><a href="{{l.url}}">{{l.title}}</a></li>
+             <li {% if link.active %}class="active"{% endif %}><a href="{{l.url}}">{{l.title}}</a></li>
          {% endfor %}
        </ul>
        {% endif %}
@@ -17,74 +21,38 @@
 	    {% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}
 	    <ul class="main-nav-child">
 	      {% for l in linklists[child_list_handle].links %}
-	      <li><a href="{{ l.url }}">{{ l.title }}</a></li>
+	      <li {% if link.active %}class="active"{% endif %}><a href="{{ l.url }}">{{ l.title }}</a></li>
 	      {% endfor %}
 	    </ul>
 	    {% endif %}
 		</li>
 		{% endfor %}
+
+		{% if shop.customer_accounts_enabled %}
+		  <li>
+		  	<a href="/account" class="main-nav-account" title="My Account {% if customer %}({{ customer.email }}){% endif %}">Account</a>
+			  {% if customer %}
+			  	<ul class="main-nav-child">
+				    <li>
+				      {{ "Logout" | customer_logout_link }}
+				    </li>
+				  </ul>
+			  {% endif %}
+			 </li>
+		{% endif %}
 	</ul>
  </nav>
- <div class="clearfix"></div>
 
+ {% comment %}
+ <!--~~~~~~~~~~~~~~~~~~~~ Usage ~~~~~~~~~~~~~~~~~~~~
+1. Create two categories, named like this:
 
-  {% comment %}
-  <!--
-  <nav class="nav-main clearfix" role="navigation">
-	<ul class="clearfix">
-	    {% for link in linklists.main-menu.links %}
-		<li class="clearfix{% if link.object.tags and link.object.tags.size > 0 %} children{% endif %}">
-			<a href="{{link.url}}">{{link.title}}</a>
+		Main
+		Main > Sub
 
-			{% if link.object.tags and link.object.tags.size > 0 %}
-			<ul>
-					{% for tag in link.object.tags %}
-						{% capture tag_link %}{{ link.url }}/{{ tag | handle }}{% endcapture %}
-						<li>{{ tag | link_to: tag_link }}</li>
-					{% endfor %}
+2. Create a link list called 'Main Menu' and add a link pointing to 'Main' collection. The handle must be 'main-menu'.
+3. Create a link list called 'Sub' and add a link pointing to the 'Main > Sub' collection.
 
-			</ul>
-			    {% endif %}
-		</li>
-		{% endfor %}
-		<li class="clearfix children">
-		    <a href="#">By Brand</a>
-		    <ul>
-		        {% for link in linklists.by-brand.links %}
-               <li><a href="{{link.url}}">{{link.title}}</a></li>
-           {% endfor %}
-		    </ul>
-		</li>
-	</ul>
-</nav>
+There is a special case for "By Brand" included, which will display the by-brand link list as a child menu of the Main Menu item named "By Brand". This is only meant as an example of how to add special cases.
 
-      <nav class="nav-main-small clearfix">
-          <label for="nav-small">Navigation </label>
-          <select id="nav-small">
-              <option value="" disabled selected>Navigation&hellip;</option>
-              {% for link in linklists.main-menu.links %}
-                  {% if link.object.tags and link.object.tags.size > 0 %}
-                      <optgroup label="{{link.title}}">
-                      {% for tag in link.object.tags %}
-						{% capture tag_link %}{{ link.url }}/{{ tag | handle }}{% endcapture %}
-						<option label="{{tag}}">{{tag_link}}</option>
-					{% endfor %}
-					<option label="All {{link.title}}">{{link.url}}</option>
-					</optgroup>
-                  {% else %}
-                      <option label="{{link.title}}">{{link.url}}</option>
-                  {% endif %}
-              {% endfor %}
-              <optgroup label="By Brand">
-                  {% for link in linklists.by-brand.links %}
-                    <option label="{{link.title}}">{{link.url}}</option>
-                  {% endfor %}
-              </optgroup>
-          </select>
-
-		<form class="form-search-small" id="search" action="/search" accept-charset="utf-8">
-			<input type="search" id="search_text" name="q" placeholder="Search..." value="{{ search.terms }}">
-			<input id="search_submit" type="submit" border="0" value="Go" style="display: none;" alt="Submit Search"/>
-		</form>
-      </nav>-->
-    {% endcomment %}
+-->{% endcomment %}
